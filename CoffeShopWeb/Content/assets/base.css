@@ -1,0 +1,26 @@
+:root{
+    --white-color:#fff;
+    --black-color:#000;
+    --accent-brown:#911F27;
+    --house-brown:#630A10;
+}
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;  
+}
+html{
+    font-family: 'Roboto', sans-serif;
+    font-size: 62.5%;
+    line-height: 1.6rem;
+}
+.form-group .form-input.invalid{
+    border-color: #f33a58;
+}
+.form-group .form-label.valid{
+    color: #f33a58;
+}
+.form-message{
+    font-size: 1.4rem;
+    color:#f33a58 ;
+}

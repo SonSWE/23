@@ -1,0 +1,42 @@
+﻿
+@{
+    ViewBag.Title = "Food";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="row">
+    <div class="col">
+        <div class="content__food">
+            <i class="fas fa-plus"></i>
+            <span>Thêm mới</span>
+        </div>
+    </div>
+    <div class="menu__select col l-o-2 l-4">
+        <label for="food">Danh mục</label>
+        <select name="food" id="food">
+            <option value="cafe">cafe</option>
+            <option value="nước cam">nước cam</option>
+            <option value="bánh ngọt">bánh ngọt</option>
+            <option value="Trà Sữa">Trà Sữa</option>
+        </select>
+    </div>
+    <div style="display: block;" class="col l-4">
+        <div class="content__find-wrap">
+            <input type="text" placeholder="Tìm kiếm" class="content__find">
+            <i class="fas fa-search"></i>
+        </div>
+    </div>
+</div>
+<div class="row ">
+    @for(int i = 0; i < 10; i++)
+    {
+        <div class="food__wrap col l-3">
+            @{ 
+                Html.RenderPartial("_FoodInforPartialView");
+            }
+        </div>
+    }
+    
+</div>
+

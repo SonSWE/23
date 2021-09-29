@@ -1,0 +1,58 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;1,400;1,500;1,700&display=swap" rel="stylesheet">
+    <link href="~/Content/assets/style.css" rel="stylesheet" />
+    <link href="~/Content/assets/base.css" rel="stylesheet" />
+    <title>Document</title>
+</head>
+<body>
+    <div class="container__form">
+        <form method="post" action="/Login/Login" class="form-1">
+            <img src="/Content/images/background input.jpg" alt="" width="100%" style="">
+            <div class="form__header">
+                <h3>Xin chào!</h3>
+                <span>Chào mừng bạn đến với web quản lý quán cafe</span>
+            </div>
+            <div class="form-group__wrap">
+                <div class="form-group">
+                    <div class="form-field">
+                        <input id="fullname" name="username" placeholder=" " type="text" class="form-input ">
+                        <label for="" class="form-label ">Name</label>
+                    </div>
+                    <span class="form-message"></span>
+                </div>
+                <div class="form-group">
+                    <div class="form-field">
+                        <input id="password" name="password" placeholder=" " type="password" class="form-input">
+                        <label for="" class="form-label">Password</label>
+                    </div>
+                    <span class="form-message"></span>
+                </div>
+                <div class="form-content">
+                    <div class="form-content__detail">
+                        <input type="checkbox" name="rememberme">
+                        <span>Keep me signed in.</span>
+                        <p>Detail</p>
+                    </div>
+                    <div class="form-content-btn">
+                        <button type="submit" class="form-btn__submit">Sign in</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <script src="../../Content/scripts/Scripts_Login.js"></script>
+</body>
+</html>
