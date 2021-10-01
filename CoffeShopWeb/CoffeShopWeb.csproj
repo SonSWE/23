@@ -128,15 +128,16 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\assets\base.css" />
+    <Content Include="Content\assets\base._login.css" />
     <Content Include="Content\assets\base_MainLayout.css" />
     <Content Include="Content\assets\grid_MainLayout.css" />
-    <Content Include="Content\assets\style.css" />
+    <Content Include="Content\assets\style_login.css" />
     <Content Include="Content\assets\Style_MainLayout.css" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\icons\all.min.css" />
     <Content Include="Content\images\background cf.jpg" />
     <Content Include="Content\images\background input.jpg" />
     <Content Include="Content\images\logo.gif" />
@@ -159,6 +160,10 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Views\Home\Food.cshtml" />
+    <Content Include="Views\Home\Table.cshtml" />
+    <Content Include="Views\Home\FoodCategories.cshtml" />
+    <Content Include="Views\Home\Statistic.cshtml" />
+    <Content Include="Views\Home\Account.cshtml" />
     <None Include="Views\Login\Login.cshtml" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
