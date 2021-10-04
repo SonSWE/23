@@ -1,0 +1,119 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="~/Content/assets/base_PayPage.css" rel="stylesheet" />
+    <link href="~/Content/assets/grid_PayPage.css" rel="stylesheet" />
+    <link href="~/Content/assets/style_PayPage.css" rel="stylesheet" />
+    <title>Document</title>
+</head>
+<body>
+    <div class="container__content row no-gutters">
+        <div class="food__wrap l-7">
+            <div class="menu-food__wrap">
+                <div class="row">
+                    <div class="menu__select col l-6">
+                        <label for="food">Danh mục</label>
+                        <select name="food" id="food">
+                            <option value="cafe">cafe</option>
+                            <option value="nước cam">nước cam</option>
+                            <option value="bánh ngọt">bánh ngọt</option>
+                            <option value="Trà Sữa">Trà Sữa</option>
+                        </select>
+                    </div>
+                    <div class="food__wrap col l-6">
+                        <div class="content__find-wrap">
+                            <input type="text" placeholder="Tìm kiếm" class="content__find">
+                            <i class="fas fa-search"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="food__wrap col l-4">
+                        <div class="content__menu">
+                            <img src="https://capherangxay.vn/wp-content/uploads/2019/12/kinh-doanh-cafe-online-co-thu-vi-khong-5.jpg" alt="" class="content__menu-img" width="100%">
+                            <div class="content__food-wrap">
+                                <h3>Cafe</h3>
+                                <span>45000</span>
+                                <div class="menu__wrap-order">
+                                    <div class="menu__order-empty">
+                                        <input type="checkbox">
+                                        <span>hết hàng</span>
+                                    </div>
+                                    <div class="menu__order-icon">
+                                        <i class="fas fa-pencil-alt"></i>
+                                        <i class="fas fa-trash"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="food__add-btn"><i class="fas fa-plus"></i></button>
+                        </div>
+                    </div>
+                    <div class="food__wrap col l-4">
+                        <div class="content__menu">
+                            <img src="https://capherangxay.vn/wp-content/uploads/2019/12/kinh-doanh-cafe-online-co-thu-vi-khong-5.jpg" alt="" class="content__menu-img" width="100%">
+                            <div class="content__food-wrap">
+                                <h3>Cafe</h3>
+                                <span>45000</span>
+                                <div class="menu__wrap-order">
+                                    <div class="menu__order-empty">
+                                        <input type="checkbox">
+                                        <span>hết hàng</span>
+                                    </div>
+                                    <div class="menu__order-icon">
+                                        <i class="fas fa-pencil-alt"></i>
+                                        <i class="fas fa-trash"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="food__add-btn"><i class="fas fa-plus"></i></button>
+                        </div>
+                    </div>
+                    <div class="food__wrap col l-4">
+                        <div class="content__menu">
+                            <img src="https://capherangxay.vn/wp-content/uploads/2019/12/kinh-doanh-cafe-online-co-thu-vi-khong-5.jpg" alt="" class="content__menu-img" width="100%">
+                            <div class="content__food-wrap">
+                                <h3>Cafe</h3>
+                                <span>45000</span>
+                                <div class="menu__wrap-order">
+                                    <div class="menu__order-empty">
+                                        <input type="checkbox">
+                                        <span>hết hàng</span>
+                                    </div>
+                                    <div class="menu__order-icon">
+                                        <i class="fas fa-pencil-alt"></i>
+                                        <i class="fas fa-trash"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="food__add-btn"><i class="fas fa-plus"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="bill__wrap">
+            <div class="row">
+                <div class="food__wrap col l-6">
+                    <a href="/Order/Cart" class="bill-header__cart active">Giỏ hàng</a>
+                </div>
+                <div class="food__wrap col l-6">
+                    <a href="/Order/Paid" class="bill-header__sold ">Đã thanh toán</a>
+                </div>
+            </div>
+            <div class="content__wrap">                
+                @RenderBody()
+            </div>
+        </div>
+    </div>
+    <!-- <script src="./main.js" ></script> -->
+</body>
+</html>
