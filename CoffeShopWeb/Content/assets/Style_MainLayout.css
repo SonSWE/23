@@ -1,11 +1,12 @@
 /* menu sidebar */
-.container__content{
+.container__content {
     position: absolute;
     width: 100%;
     top: 0;
     bottom: 0;
 }
-.sidebar-wrap{
+
+.sidebar-wrap {
     position: fixed;
     left: 0;
     bottom: 0;
@@ -13,128 +14,136 @@
     display: block;
     background-color: var(--second-white);
 }
-.sidebar-wrap::after{
-    content: "";
-    position: absolute;
-    width: 3px;
-    height: 70%;
-    right: -1px;
-    top: 10%;
-    background-color: var(--main-brown);
-    border-radius: 10px;
 
-}
-.sidebar__logo{
+    .sidebar-wrap::after {
+        content: "";
+        position: absolute;
+        width: 3px;
+        height: 70%;
+        right: -1px;
+        top: 10%;
+        background-color: var(--main-brown);
+        border-radius: 10px;
+    }
 
+.sidebar__logo {
 }
-.sidebar__menu{
+
+.sidebar__menu {
     margin-top: 10px;
 }
-.sidebar__menu-list{
+
+.sidebar__menu-list {
 }
-.sidebar__menu-item{
-  margin: 16px 10px;
+
+.sidebar__menu-item {
+    margin: 16px 10px;
 }
-.sidebar__menu-link{
+
+.sidebar__menu-link {
+    text-decoration:none;
     font-size: 1.6rem;
     line-height: 2rem;
     display: block;
     color: var(--main-brown);
-    padding: 12px 20px ;
+    padding: 12px 20px;
     cursor: pointer;
 }
-.sidebar__menu-link i{
-    padding-right: 5px;
-}
-/* cotent-menu */
-.content__menu-wrap{
+
+    .sidebar__menu-link i {
+        padding-right: 5px;
+    }
+/* content-menu */
+.content__menu-wrap {
     display: block;
     padding: 30px;
     overflow-y: hidden;
+    width: 100%;
 }
 /* nut them moi */
-.content__food{
-    font-size: 1.8rem;
-    background-color: var(--main-brown);
-    padding:5px 15px;
-    border-radius: 10px;
-    color: var(--white-color);
-    cursor: pointer;
-}
-.content__food i{
-    transform: translateY(2px);
-}
+
 /* danh muc */
-.menu__select{
+.menu__select {
     display: flex;
     flex-direction: column;
     position: relative;
 }
-.menu__select label{
-    font-size: 1.4rem;
-    font-weight: 600;
-    color: var(--main-brown);
-}
-.menu__select select{
-    background-color: transparent;
-    border: none;
-    position: relative;
-    font-size: 1.4rem;
-}
-.menu__select select:focus{
-    outline: none;
-}
-.menu__select::after{
-    content: "";
-    position: absolute;
-    height: 1px;
-    background-color: var(--main-brown);
-    width: 87%;
-    top: 82.5%;
-    left: 15px;
-}
-.menu__select select option{
-    font-size: 1.4rem;
-}
+
+    .menu__select label {
+        font-size: 1.4rem;
+        font-weight: 600;
+        color: var(--main-brown);
+    }
+
+    .menu__select select {
+        background-color: transparent;
+        border: none;
+        position: relative;
+        font-size: 1.4rem;
+    }
+
+        .menu__select select:focus {
+            outline: none;
+        }
+
+    .menu__select::after {
+        content: "";
+        position: absolute;
+        height: 1px;
+        background-color: var(--main-brown);
+        width: 87%;
+        top: 82.5%;
+        left: 15px;
+    }
+
+    .menu__select select option {
+        font-size: 1.4rem;
+    }
 /* tim kiem */
-.content__food:hover{
+.content__food:hover {
     opacity: 0.7;
 }
-.content__find-wrap{
+
+.content__find-wrap {
     position: relative;
     display: flex;
     align-items: center;
     height: 100%;
-    margin-right:10px ;
+    margin-right: 10px;
 }
-.content__find-wrap::before{
-    content: "";
-    position: absolute;
-    /* width: 100%; */
-    left: 0;
-    right: -10px;
-    height: 1px;
-    background-color: #888;
-    bottom: 5px;
-}
-.content__find{
+
+    .content__find-wrap::before {
+        content: "";
+        position: absolute;
+        /* width: 100%; */
+        left: 0;
+        right: -10px;
+        height: 1px;
+        background-color: #888;
+        bottom: 5px;
+    }
+
+.content__find {
     flex: 1;
     font-size: 1.4rem;
-    height: 50%;   
+    height: 50%;
     background-color: transparent;
 }
-.content__find:focus {
-    outline: none;
-}
-.content__find-wrap i{
+
+    .content__find:focus {
+        outline: none;
+    }
+
+.content__find-wrap i {
     font-size: 1.4rem;
     color: var(--border-color);
 }
-.food__wrap{
+
+.food__wrap {
     display: block;
-   
 }
-.content__menu{
+
+.content__menu {
     border: var(--make-border);
     box-shadow: var(--make-shadow);
     border-radius: 10px;
@@ -142,48 +151,224 @@
     margin-top: 20px;
     cursor: pointer;
 }
-.content__menu:hover{
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-}
 
-.content__food-wrap{
+    .content__menu:hover {
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    }
+
+.content__food-wrap {
     padding: 10px;
 }
-.content__menu-wrap h3{
+
+.content__menu-wrap h3 {
     margin: 10px 0;
     font-size: 1.8rem;
     color: var(--text-color);
 }
-.content__menu-wrap span{
+
+.content__menu-wrap span {
     display: inline-block;
     margin: 10px 0;
     font-size: 1.2rem;
     color: var(--text-color);
 }
-.menu__wrap-order{
+
+.menu__wrap-order {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
-.menu__order-empty{
+
+.menu__order-empty {
     display: flex;
     align-items: center;
 }
-.menu__order-empty span{
-    padding-left: 5px;
-}
-.menu__order-icon{
 
+    .menu__order-empty span {
+        padding-left: 5px;
+    }
+
+.menu__order-icon {
 }
-.menu__order-icon i{
+
+    .menu__order-icon i {
+        font-size: 1.4rem;
+        color: var(--text-color);
+        padding: 8px;
+        border: 1px solid var(--text-color);
+        border-radius: 100%;
+        margin: 0 4px;
+    }
+
+        .menu__order-icon i:hover {
+            background-color: var(--main-brown);
+            color: var(--white-color);
+        }
+/* ------------------------------danh muc -------- */
+.content__find {
+    flex: 1;
     font-size: 1.4rem;
-    color: var(--text-color);
-    padding: 8px;
-    border: 1px solid var(--text-color);
-    border-radius: 100%;
-    margin:0 4px;
+    height: 50%;
+    background-color: transparent;
 }
-.menu__order-icon i:hover{
+
+    .content__find:focus {
+        outline: none;
+    }
+
+.content__find-wrap i {
+    font-size: 1.4rem;
+    color: var(--border-color);
+}
+
+.table-content {
+    width: 100%;
+    color: var(--border-color);
+    font-size: 1.4rem;
+    font-weight: 300;
+    margin-top: 20px;
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: 10px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    overflow: hidden;
+}
+
+    .table-content tr {
+        border-spacing: 10px;
+    }
+
+        .table-content tr th {
+            font-weight: 400;
+            padding: 10px;
+        }
+/* ------------trang chu----------------------- */
+
+.main-page__content-wrap {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.main-page__content {
+    display: block;
+    height: 130px;
+    box-shadow: var(--make-shadow);
+    border-radius: 10px;
+    border: var(--make-border);
+    margin-left: 20px;
+    position: absolute;
+}
+/* bang dieu khien================== */
+.table__menu-wrap {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
+    height: 200px;
+    box-shadow: var(--make-shadow);
+    border-radius: 10px;
+    border: var(--make-border);
+    margin-top: 20px;
+}
+
+    .table__menu-wrap h3 {
+        color: var(--main-brown);
+        font-size: 1.8rem;
+        font-weight: 600;
+    }
+
+.table__menu-btn {
+    margin-bottom: 20px;
+}
+
+    .table__menu-btn i {
+        font-size: 1.6em;
+        border: 1px solid var(--main-brown);
+        padding: 8px;
+        border-radius: 100%;
+        margin: 0 15px;
+        cursor: pointer;
+    }
+
+        .table__menu-btn i:hover {
+            color: var(--white-color);
+            background-color: var(--main-brown);
+        }
+/* thong kee------------------------------- */
+.caculate-wrap {
+    border: var(--make-border);
+    box-shadow: var(--make-shadow);
+    border-radius: 10px;
+    overflow: hidden;
+    margin-top: 20px;
+    cursor: pointer;
+    height: 140px;
+}
+
+.chart-wrap {
+    width: 100%;
+    height: 500px;
+    border: var(--make-border);
+    box-shadow: var(--make-shadow);
+    border-radius: 10px;
+    overflow: hidden;
+    margin-top: 20px;
+    cursor: pointer;
+}
+/* Tai khoan */
+.account-ct.row {
+    justify-content: center;
+    align-items: center;
+}
+
+.account-wrap {
+}
+
+.account-wrap__img {
+    border: 1px solid var(--main-brown);
+    box-shadow: var(--make-shadow);
+    border-radius: 100%;
+    width: 200px;
+    height: 200px;
+    margin: auto;
+}
+
+.account-wrap__content {
+    margin: 30px 0;
+}
+
+    .account-wrap__content h3 {
+    }
+
+.account-wrap__btn {
+    display: flex;
+    justify-content: space-between;
+}
+
+.account-wrap__pass {
     background-color: var(--main-brown);
     color: var(--white-color);
+    padding: 5px 20px;
+    font-size: 1.4rem;
+    border-radius: 8px;
+    margin: 0 10px;
+    cursor: pointer;
+}
+
+.account-wrap__signout {
+    background-color: red;
+    color: var(--white-color);
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 1.4rem;
+    margin: 0 10px;
+    cursor: pointer;
+}
+
+.account-wrap__pass:hover {
+    opacity: 0.7;
+}
+
+.account-wrap__signout:hover {
+    opacity: 0.6;
 }

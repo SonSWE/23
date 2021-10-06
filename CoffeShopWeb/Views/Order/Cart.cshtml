@@ -1,0 +1,60 @@
+﻿
+@{
+    ViewBag.Title = "Cart";
+    Layout = "~/Views/Shared/_payPage.cshtml";
+}
+
+<div class="content__bill-wrap active">
+    <div class="row">
+        <div class="bill__table">
+            <table class="table-bill__content">
+                <tr>
+                    <th></th>
+                    <th>SL</th>
+                    <th>Tên món</th>
+                    <th>Giá</th>
+                    <th>Thành tiền</th>
+                    <th></th>
+                </tr>
+                <tr>
+                    <td style="color: red;cursor: pointer;"><i class="fas fa-minus"></i></td>
+                    <td>2</td>
+                    <td>Kem tươi vị dâu</td>
+                    <td>25 000</td>
+                    <td>50 000</td>
+                    <td style="color: green; cursor: pointer;"><i class="fas fa-plus"></i></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="row">
+        <div class="food__wrap col l-6">
+            <div class="bill-cash__wrap">
+                <div class="bill-money__pay">
+                    <label for="">Tổng:</label>
+                    <span></span>
+                </div>
+                <div class="bill-money__pay">
+                    <label for="">Khách đưa:</label>
+                    <input type="text">
+                </div>
+                <div class="bill-money__pay">
+                    <label for="">Tiền thừa:</label>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+        <div class="food__wrap col l-6">
+            <div class="bill-note__wrap">
+
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="bill__wrap-btn l-o-6">
+            <button class="button__accept">Thanh toán</button>
+            <button class="button__valid">Hủy</button>
+        </div>
+    </div>
+</div>
+
