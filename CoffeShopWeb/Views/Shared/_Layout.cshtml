@@ -12,6 +12,7 @@
     <link href="~/Content/assets/base_MainLayout.css" rel="stylesheet" />
     <link href="~/Content/assets/grid_MainLayout.css" rel="stylesheet" />
     <link href="~/Content/assets/Style_MainLayout.css" rel="stylesheet" />
+
     <title>Document</title>
 </head>
 <body>
@@ -47,5 +48,9 @@
             @RenderBody()
         </div>
     </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")  
+    @RenderSection("scripts", required: false)
 </body>
 </html>

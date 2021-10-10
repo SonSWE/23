@@ -1,8 +1,13 @@
-﻿
+﻿@using CoffeShopWeb.Models;
+@using System.Collections.ObjectModel;
+
+@model ObservableCollection<FoodCategory>
+
 @{
     ViewBag.Title = "FoodCategories";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+
 <div class="row">
     <div class="col">
         <div class="content__food">
@@ -42,26 +47,12 @@
                 <th>Người chỉnh sửa</th>
                 <th>Ngày chỉnh chửa</th>
             </tr>
-            <tr>
-                <th>1</th>
-                <th>Cafe</th>
-                <th></th>
-                <th>admin</th>
-                <th>8/10/2021 10:34:32 PM</th>
-                <th></th>
-                <th></th>
-            </tr>
-            <tr>
-                <th>2</th>
-                <th>Kem</th>
-                <th></th>
-                <th>admin</th>
-                <th>8/10/2021 10:34:32 PM</th>
-                <th>Người chỉnh sửa</th>
-                <th>Ngày chỉnh chửa</th>
-            </tr>
+
+            @foreach (var category in Model)
+            {
+                Html.RenderPartial("_FoodCategoryPartialView", category);
+            }
         </table>
     </div>
 </div>
-
 
