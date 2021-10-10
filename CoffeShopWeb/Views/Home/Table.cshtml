@@ -3,34 +3,23 @@
     ViewBag.Title = "Table";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+
 <div class="row">
     <div class="col">
-        <div class="content__food">
+        <div id="btn-add__table" class="content__food">
             <i class="fas fa-plus"></i>
             <span>Thêm mới</span>
         </div>
     </div>
-    <div class="col">
-        <div class="content__food">
-            <i class="fas fa-pencil-alt"></i>
-            <span>Sửa</span>
-        </div>
-    </div>
-    <div class="col">
-        <div class="content__food">
-            <i class="fas fa-minus-circle"></i>
-            <span>Xóa</span>
-        </div>
-    </div>
 </div>
 <div class="row">
     <div style="display: block;" class="col l-3">
         <div class="table__menu-wrap">
             <h3>Ban1</h3>
             <div class="table__menu-btn">
-                <i class="fas fa-pencil-alt"></i>
+                <i id="fix-table" class="fas fa-pencil-alt"></i>
                 <i class="fas fa-cash-register"></i>
-                <i class="fas fa-edit"></i>
+                <i id="delete-table" class="fas fa-edit"></i>
             </div>
         </div>
     </div>
@@ -38,14 +27,99 @@
         <div class="table__menu-wrap">
             <h3>Ban1</h3>
             <div class="table__menu-btn">
-                <i class="fas fa-pencil-alt"></i>
-                <a href="/Order/Cart">
-                    <i class="fas fa-cash-register"></i>
-                </a>
-                <i class="fas fa-edit"></i>
+                <i id="fix-table" class="fas fa-pencil-alt"></i>
+                <i class="fas fa-cash-register"></i>
+                <i id="delete-table" class="fas fa-edit"></i>
             </div>
         </div>
     </div>
 </div>
+<div class="box__layout">
+    <div id="table-add" class="box__layout-add">
+        <div class="layout-add__header">
+            <h3>Thêm bàn</h3>
+        </div>
+        <div class="layout-add__content">
+            <div class="add__input-wrap">
+                <input type="text" placeholder="Tên danh mục">
+            </div>
+            <div class="add__input-wrap">
+                <input type="text" placeholder="Ghi chú">
+            </div>
+        </div>
+        <div class="layout-add__btn">
+            <button id="save-btn__table" class="layout-add__save">Lưu</button>
+            <button id="out-btn__table" class="layout-add__out ">Thoát</button>
+        </div>
+    </div>
+    <div id="table-fix" class="box__layout-add">
+        <div class="layout-add__header">
+            <h3>Chỉnh sửa</h3>
+        </div>
+        <div class="layout-add__content">
+            <div class="add__input-wrap">
+                <input type="text" placeholder="Tên danh mục">
+            </div>
+            <div class="add__input-wrap">
+                <input type="text" placeholder="Ghi chú">
+            </div>
+        </div>
+        <div class="layout-add__btn">
+            <button id="tbsave-btn__fix" class="layout-add__save">Lưu</button>
+            <button id="tbout-btn__fix" class="layout-add__out ">Thoát</button>
+        </div>
+    </div>
+    <div id="delete-table_layout" class="box__layout-delete">
+        <div class="layout-delete__header">
+            <h3>Bạn có chắc muốn xóa</h3>
+        </div>
+        <div class="layout-delete__btn">
+            <button id="accept-btn__table" class="layout-delete__accept">Đồng ý</button>
+            <button id="reject-btn__table" class="layout-delete__out ">Thoát</button>
+        </div>
+    </div>
+</div>
+@section scripts{
+    <script>
+        const add_TableLayout = document.querySelector('#table-add') // them san pham modal o bang dieu khien
+        const table_fixLayout = document.querySelector('#table-fix')
+        const del_TableLayout = document.querySelector('#delete-table_layout')
+        const btnTable = document.querySelector('#btn-add__table') // nut them san pham trong bang dieu khien
+        const table_outBtn = document.querySelector('#out-btn__table') // nut thoat khoi phan them san pham trong table
+        const table_fixBtn = document.querySelectorAll('#fix-table')
+        const table_outfixBtn = document.querySelector('#tbout-btn__fix')
+        const table_delBtn = document.querySelectorAll('#delete-table')
+        const table_rejectBtn = document.querySelector('#reject-btn__table')
+        btnTable.onclick = function () {
+            add_TableLayout.style.display = "block";
+            add_TableLayout.parentElement.style.display = "flex"
+        }
+        table_outBtn.onclick = function () {
+            add_TableLayout.style.display = "none";
+            add_TableLayout.parentElement.style.display = "none"
+        }
+        // xac nhan xoa cua Bang dieu khien
+        Array.from(table_delBtn).forEach(function (item, index) {
+            item.onclick = function () {
+                del_TableLayout.style.display = "block";
+                del_TableLayout.parentElement.style.display = "flex"
+            }
+        })
 
-
+        table_rejectBtn.onclick = function () {
+            del_TableLayout.style.display = "none";
+            del_TableLayout.parentElement.style.display = "none"
+        }
+        // chinh sua cua bang dieu khien
+        Array.from(table_fixBtn).forEach(function (item) {
+            item.onclick = function () {
+                table_fixLayout.style.display = "block";
+                table_fixLayout.parentElement.style.display = "flex"
+            }
+        })
+        table_outfixBtn.onclick = function () {
+            table_fixLayout.style.display = "none";
+            table_fixLayout.parentElement.style.display = "none"
+        }
+    </script>
+}

@@ -4,10 +4,9 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-
 <div class="row">
     <div class="col">
-        <div class="content__food">
+        <div id="food" class="content__food">
             <i class="fas fa-plus"></i>
             <span>Thêm mới</span>
         </div>
@@ -29,14 +28,92 @@
     </div>
 </div>
 <div class="row ">
-    @for(int i = 0; i < 10; i++)
+    @for (int i = 0; i < 10; i++)
     {
         <div class="food__wrap col l-3">
-            @{ 
+            @{
                 Html.RenderPartial("_FoodInforPartialView");
             }
         </div>
     }
-    
+
+
 </div>
+<div class="box__layout">
+    <div id="food-add" class="box__layout-add food">
+        <div class="layout-add__header">
+            <h3>Thêm món</h3>
+        </div>
+        <div class="food__add-content">
+            <div class="add__img-wrap">
+                <img src="https://lh3.googleusercontent.com/proxy/7xI1HtSI_Aa-y0Em6gOmyi8k_fxZ3dhe3K8-oKZgeSI_xBUy27L3ATZ6eNyUB_g__TmrSpqvFQhJKqKYbFk" alt="" width="300px" height="300px">
+            </div>
+            <div class="layout-add__content food">
+                <div style="display:block" class="add__input-wrap food ">
+                    <input type="text" placeholder="Tên danh mục">
+                </div>
+                <div style="display:block" class="add__input-wrap food ">
+                    <input type="text" placeholder="Danh mục">
+                </div>
+                <div class="price__input">
+                    <div style="display:block" class="add__input-wrap food ">
+                        <input type="text" placeholder="Giá nhập">
+                    </div>
+                    <div style="display:block" class="add__input-wrap food ">
+                        <input type="text" placeholder="Giá bán">
+                    </div>
+                </div>
+                <div style="display:block" class="add__input-wrap food ">
+                    <input type="text" placeholder="Số lượng">
+                </div>
+                <div style="display:block" class="add__input-wrap food ">
+                    <input type="text" placeholder="Ghi chú">
+                </div>
+                <div class="layout-add__btn food">
+                    <button id="save-btn__food" class="layout-add__save">Lưu</button>
+                    <button id="out-btn__food" class="layout-add__out ">Thoát</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="delete-food_layout" class="box__layout-delete">
+        <div class="layout-delete__header">
+            <h3>Bạn có chắc muốn xóa</h3>
+        </div>
+        <div class="layout-delete__btn" ">
+            <button id="accept-btn__food" class="layout-delete__accept">Đồng ý</button>
+            <button id="reject-btn__food" class="layout-delete__out ">Thoát</button>
+        </div>
+    </div>
+</div>
+@section scripts{
+    <script>
+        const add_FoodLayout = document.querySelector('#food-add')
+        const del_FoodLayout = document.querySelector('#delete-food_layout')
+        const foodAdd = document.querySelector('#food') // nut them san pham trong menu mon
+        const food_outBtn = document.querySelector('#out-btn__food')
+        const del_foodBtn = document.querySelectorAll('#delete-food')
+        const food_rejectBtn = document.querySelector('#reject-btn__food')
+        foodAdd.onclick = function () {
+            add_FoodLayout.style.display = "block";
+            add_FoodLayout.parentElement.style.display = "flex"
+        }
+        food_outBtn.onclick = function () {
+            add_FoodLayout.style.display = "none";
+            add_FoodLayout.parentElement.style.display = "none"
+        }
+        //Xac nhan xoa cua mon an
+        Array.from(del_foodBtn).forEach(function (item, index) {
+            item.onclick = function () {
+                del_FoodLayout.style.display = "block";
+                del_FoodLayout.parentElement.style.display = "flex"
+            }
+        })
+        food_rejectBtn.onclick = function () {
+            del_FoodLayout.style.display = "none";
+            del_FoodLayout.parentElement.style.display = "none"
+        }
+    </script>
+}
+
 
