@@ -19,7 +19,7 @@
         content: "";
         position: absolute;
         width: 3px;
-        height: 600px;
+        height: 70%;
         right: -1px;
         top: 10%;
         background-color: var(--main-brown);
@@ -41,6 +41,7 @@
 }
 
 .sidebar__menu-link {
+    text-decoration:none;
     font-size: 1.6rem;
     line-height: 2rem;
     display: block;
@@ -52,7 +53,92 @@
     .sidebar__menu-link i {
         padding-right: 5px;
     }
-/* =====================================MOn an // menu========================================= */
+/* content-menu */
+.content__menu-wrap {
+    display: block;
+    padding: 30px;
+    overflow-y: hidden;
+    width: 100%;
+}
+/* nut them moi */
+
+/* danh muc */
+.menu__select {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+    .menu__select label {
+        font-size: 1.4rem;
+        font-weight: 600;
+        color: var(--main-brown);
+    }
+
+    .menu__select select {
+        background-color: transparent;
+        border: none;
+        position: relative;
+        font-size: 1.4rem;
+    }
+
+        .menu__select select:focus {
+            outline: none;
+        }
+
+    .menu__select::after {
+        content: "";
+        position: absolute;
+        height: 1px;
+        background-color: var(--main-brown);
+        width: 87%;
+        top: 82.5%;
+        left: 15px;
+    }
+
+    .menu__select select option {
+        font-size: 1.4rem;
+    }
+/* tim kiem */
+.content__food:hover {
+    opacity: 0.7;
+}
+
+.content__find-wrap {
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    margin-right: 10px;
+}
+
+    .content__find-wrap::before {
+        content: "";
+        position: absolute;
+        /* width: 100%; */
+        left: 0;
+        right: -10px;
+        height: 1px;
+        background-color: #888;
+        bottom: 5px;
+    }
+
+.content__find {
+    flex: 1;
+    font-size: 1.4rem;
+    height: 50%;
+    background-color: transparent;
+}
+
+    .content__find:focus {
+        outline: none;
+    }
+
+.content__find-wrap i {
+    font-size: 1.4rem;
+    color: var(--border-color);
+}
+
 .food__wrap {
     display: block;
 }
@@ -71,22 +157,21 @@
     }
 
 .content__food-wrap {
-    display: block;
     padding: 10px;
 }
 
-    .content__food-wrap h3 {
-        margin: 10px 0;
-        font-size: 1.8rem;
-        color: var(--text-color);
-    }
+.content__menu-wrap h3 {
+    margin: 10px 0;
+    font-size: 1.8rem;
+    color: var(--text-color);
+}
 
-    .content__food-wrap span {
-        display: inline-block;
-        margin: 10px 0;
-        font-size: 1.2rem;
-        color: var(--text-color);
-    }
+.content__menu-wrap span {
+    display: inline-block;
+    margin: 10px 0;
+    font-size: 1.2rem;
+    color: var(--text-color);
+}
 
 .menu__wrap-order {
     display: flex;
@@ -119,7 +204,7 @@
             background-color: var(--main-brown);
             color: var(--white-color);
         }
-/*---------------------------------------------------danh muc ------------------------------------------------- */
+/* ------------------------------danh muc -------- */
 .content__find {
     flex: 1;
     font-size: 1.4rem;
@@ -156,7 +241,6 @@
             font-weight: 400;
             padding: 10px;
         }
-
             .table-content tr th .add-cate-btn {
                 color: #45cf45;
                 cursor: pointer;
@@ -168,7 +252,7 @@
                 cursor: pointer;
                 margin-left: 2px;
             }
-/*--------------------------------------------------------------trang chu-----------------------------------------------------*/
+/* ------------trang chu----------------------- */
 
 .main-page__content-wrap {
     position: relative;
@@ -185,7 +269,7 @@
     margin-left: 20px;
     position: absolute;
 }
-/*================================================================ bang dieu khien==================------------------------- */
+/* bang dieu khien================== */
 .table__menu-wrap {
     display: flex;
     flex-direction: column;
@@ -202,7 +286,6 @@
         color: var(--main-brown);
         font-size: 1.8rem;
         font-weight: 600;
-        margin: 10px 0;
     }
 
 .table__menu-btn {
@@ -222,7 +305,7 @@
             color: var(--white-color);
             background-color: var(--main-brown);
         }
-/*-------------------------------------------------------------thong kee------------------------------------------------------*/
+/* thong kee------------------------------- */
 .caculate-wrap {
     border: var(--make-border);
     box-shadow: var(--make-shadow);
@@ -243,7 +326,7 @@
     margin-top: 20px;
     cursor: pointer;
 }
-/* -------------------------------------------------------------Tai khoan--------------------------------------------------------- */
+/* Tai khoan */
 .account-ct.row {
     justify-content: center;
     align-items: center;
@@ -266,9 +349,6 @@
 }
 
     .account-wrap__content h3 {
-        margin: 10px 0;
-        font-size: 1.8rem;
-        color: var(--text-color);
     }
 
 .account-wrap__btn {

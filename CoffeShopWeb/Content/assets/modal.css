@@ -1,3 +1,23 @@
+@keyframes animationzoom {
+    0% {
+        transform: scale(0);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+.table-content tr th .add-cate-btn {
+    color: #45cf45;
+    cursor: pointer;
+    margin-right: 2px;
+}
+
+.table-content tr th .delete-cate-btn {
+    color: #e51111;
+    cursor: pointer;
+    margin-left: 2px;
+}
 .box__layout{
     position: absolute;
     top: 0;
@@ -98,7 +118,7 @@
     font-weight: 600;
 }
 .layout-delete__btn{
-    margin-top: 30px;
+    margin-top: 20px;
     display: flex;
     justify-content: flex-end;
     padding: 0 20px;

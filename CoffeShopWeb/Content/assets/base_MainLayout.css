@@ -13,15 +13,6 @@
     border: 0;
     box-sizing: border-box;
 }
-@keyframes animationzoom {
-    0% {
-        transform: scale(0);
-    }
-
-    100% {
-        transform: scale(1);
-    }
-}
 
 html {
     font-size: 62.5%;
