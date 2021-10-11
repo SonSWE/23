@@ -21,7 +21,7 @@ namespace CoffeShopWeb.Models
         }
     
         public string Id { get; set; }
-        public int IdCategory { get; set; }
+        public string IdCategory { get; set; }
         public string Name { get; set; }
         public int Stock { get; set; }
         public double IntputPrice { get; set; }
@@ -29,6 +29,7 @@ namespace CoffeShopWeb.Models
         public string Note { get; set; }
         public string IdImage { get; set; }
         public bool IsOutOfStock { get; set; }
+        public bool IsDel { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<BillInfo> BillInfoes { get; set; }

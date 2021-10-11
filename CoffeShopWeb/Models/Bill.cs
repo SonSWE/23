@@ -21,14 +21,13 @@ namespace CoffeShopWeb.Models
         }
     
         public string Id { get; set; }
-        public int IdTable { get; set; }
+        public string IdTable { get; set; }
         public double Cash { get; set; }
         public double Total { get; set; }
         public string Note { get; set; }
         public string NameUserOrder { get; set; }
         public System.DateTime DateCheckOut { get; set; }
     
-        public virtual Account Account { get; set; }
         public virtual Table Table { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<BillInfo> BillInfoes { get; set; }

@@ -54,6 +54,7 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.Entity" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
@@ -179,6 +180,7 @@
     <Content Include="Content\assets\base_PayPage.css" />
     <Content Include="Content\assets\grid_MainLayout.css" />
     <Content Include="Content\assets\grid_PayPage.css" />
+    <Content Include="Content\assets\modal.css" />
     <Content Include="Content\assets\style_login.css" />
     <Content Include="Content\assets\Style_MainLayout.css" />
     <Content Include="Content\assets\style_PayPage.css" />
@@ -196,8 +198,8 @@
     <Content Include="Content\Site.css" />
     <Content Include="Models\Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Model1.Context.cs</LastGenOutput>
       <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.Context.cs</LastGenOutput>
     </Content>
     <Content Include="Models\Model1.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -250,6 +252,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\FoodCategory\" />
+    <Folder Include="Views\Food\" />
+    <Folder Include="Views\Table\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

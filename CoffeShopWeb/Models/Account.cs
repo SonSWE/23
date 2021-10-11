@@ -14,19 +14,10 @@ namespace CoffeShopWeb.Models
     
     public partial class Account
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Account()
-        {
-            this.Bills = new HashSet<Bill>();
-        }
-    
         public string Username { get; set; }
         public string Password { get; set; }
         public string Name { get; set; }
         public Nullable<bool> Online { get; set; }
         public int Permission { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Bill> Bills { get; set; }
     }
 }

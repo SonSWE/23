@@ -20,10 +20,11 @@ namespace CoffeShopWeb.Models
             this.Bills = new HashSet<Bill>();
         }
     
-        public int Id { get; set; }
+        public string Id { get; set; }
         public string Name { get; set; }
         public string Status { get; set; }
         public bool IsFull { get; set; }
+        public bool IsDel { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Bill> Bills { get; set; }

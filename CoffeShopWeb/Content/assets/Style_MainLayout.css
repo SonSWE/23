@@ -241,6 +241,17 @@
             font-weight: 400;
             padding: 10px;
         }
+            .table-content tr th .add-cate-btn {
+                color: #45cf45;
+                cursor: pointer;
+                margin-right: 2px;
+            }
+
+            .table-content tr th .delete-cate-btn {
+                color: #e51111;
+                cursor: pointer;
+                margin-left: 2px;
+            }
 /* ------------trang chu----------------------- */
 
 .main-page__content-wrap {

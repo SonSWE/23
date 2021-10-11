@@ -1,0 +1,173 @@
+@keyframes animationzoom {
+    0% {
+        transform: scale(0);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+.table-content tr th .add-cate-btn {
+    color: #45cf45;
+    cursor: pointer;
+    margin-right: 2px;
+}
+
+.table-content tr th .delete-cate-btn {
+    color: #e51111;
+    cursor: pointer;
+    margin-left: 2px;
+}
+.box__layout{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0,0,0,0.4);
+    display: none;
+    z-index: 2;
+    justify-content: center;
+    align-items: center;
+}
+.box__layout-add{
+    display: none;
+    background-color: var(--white-color);
+    width: 450px;
+    height: 300px;
+    border-radius: 10px;
+    overflow:hidden;
+    animation: animationzoom 0.6s;
+}
+.layout-add__header{
+    text-align: center; 
+    background-color: var(--main-brown);
+         
+}
+.layout-add__header h3{
+    margin: 0;
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: var(--white-color); 
+    padding: 20px 0 ;
+}
+.layout-add__content{
+    padding: 30px;
+}
+.add__input-wrap{
+    margin-top: 20px;
+    border-bottom: 1px solid #888;
+}
+.add__input-wrap input{
+    position: relative;
+    font-size: 1.4rem;
+    padding: 10px;
+    width: 100%;
+}
+.add__input-wrap input:focus{
+    outline: none;
+}
+.add__input-wrap input::after{
+    content: "";
+    position: absolute;
+    top: 100%;
+    width: 100%;
+    background-color: var(--main-brown);
+    height: 1px;
+}
+.layout-add__btn{
+    padding: 0 30px;
+    display: flex;
+    justify-content: flex-end;
+}
+.layout-add__save{
+    margin-right:10px ;
+    border-radius: 8px;
+    background-color: #8CFF70;
+    color: var(--white-color);
+    font-size: 1.4rem;
+    padding: 10px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+    cursor: pointer;
+
+}
+.layout-add__out{
+    background-color: #FF5555;
+    border-radius: 8px;
+    color: var(--white-color);
+    font-size: 1.4rem;
+    padding: 10px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+    cursor: pointer;
+}
+/* ======================================box thông báo xác nhận ============================================*/
+.box__layout-delete{
+    display: none;
+    padding: 10px;
+    background-color: var(--white-color);
+    width:300px;
+    height: 120px;
+    border-radius: 10px;
+    overflow:hidden;
+    padding: 18px 10px;
+    animation: animationzoom 0.6s;
+}
+.layout-delete__header h3{
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 600;
+}
+.layout-delete__btn{
+    margin-top: 20px;
+    display: flex;
+    justify-content: flex-end;
+    padding: 0 20px;
+}
+.layout-delete__accept{
+    margin-right:10px ;
+    border-radius: 8px;
+    background-color: #8CFF70;
+    color: var(--white-color);
+    font-size: 1.4rem;
+    padding: 10px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+    cursor: pointer;
+}
+.layout-delete__out{
+    background-color: #FF5555;
+    border-radius: 8px;
+    color: var(--white-color);
+    font-size: 1.4rem;
+    padding: 10px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+    cursor: pointer;
+}
+/*=============================== theem mon an vao menu ===============================================*/
+.box__layout-add.food{
+    width: 700px;
+    height: 400px;
+}
+.food__add-content{
+    display: flex;
+}
+.add__img-wrap{
+    padding: 20px;
+}
+.layout-add__content.food{
+    flex: 1;
+   
+    padding: 10px;
+}
+.add__input-wrap.food{
+    margin: 10px 10px;
+}
+.price__input{
+    display: flex;
+    justify-content: space-around;
+}
+.add__input-wrap.food input{
+    padding-left: 0;
+}
+.layout-add__btn.food{
+    margin: 20px 0;
+}

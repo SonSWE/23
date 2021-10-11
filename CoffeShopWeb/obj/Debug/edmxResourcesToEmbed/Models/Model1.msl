@@ -46,6 +46,7 @@
           <ScalarProperty Name="DateAdd" ColumnName="DateAdd" />
           <ScalarProperty Name="NameUserChange" ColumnName="NameUserChange" />
           <ScalarProperty Name="DateChange" ColumnName="DateChange" />
+          <ScalarProperty Name="IsDel" ColumnName="IsDel" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -61,6 +62,7 @@
           <ScalarProperty Name="Note" ColumnName="Note" />
           <ScalarProperty Name="IdImage" ColumnName="IdImage" />
           <ScalarProperty Name="IsOutOfStock" ColumnName="IsOutOfStock" />
+          <ScalarProperty Name="IsDel" ColumnName="IsDel" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -79,6 +81,7 @@
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="Status" ColumnName="Status" />
           <ScalarProperty Name="IsFull" ColumnName="IsFull" />
+          <ScalarProperty Name="IsDel" ColumnName="IsDel" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
