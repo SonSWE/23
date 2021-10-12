@@ -1,4 +1,8 @@
-﻿
+﻿@using CoffeShopWeb.Models;
+@using System.Collections.ObjectModel;
+
+@model ObservableCollection<Food>
+
 @{
     ViewBag.Title = "Food";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -28,15 +32,16 @@
     </div>
 </div>
 
-<div class="row ">
-    @for (int i = 0; i < 10; i++)
+<div class="row " id="rowShowFood">
+    @foreach(var item in Model)
     {
         <div class="food__wrap col l-3">
             @{
-                Html.RenderPartial("_FoodInforPartialView");
+                Html.RenderPartial("_FoodPartialView",item);
             }
         </div>
     }
+
 </div>
 
 <div class="box__layout">
@@ -87,46 +92,88 @@
     </div>
 </div>
 
-@section scripts{ 
+@section scripts{
     <script>
         const add_FoodLayout = document.querySelector('#food-add')
         const del_FoodLayout = document.querySelector('#delete-food_layout')
-        const foodAdd = document.querySelector('#food') // nut them san pham trong menu mon
-        const foodChange = document.querySelector('#change-food')
-        const food_outBtn = document.querySelector('#out-btn__food')
-        const del_foodBtn = document.querySelectorAll('#delete-food')
-        const food_rejectBtn = document.querySelector('#reject-btn__food')
 
-        //Add
-        foodAdd.onclick = function () {
-            add_FoodLayout.style.display = "block";
-            add_FoodLayout.parentElement.style.display = "flex"
-        }
+        //const foodAdd = document.querySelector('#food') // nut them san pham trong menu mon
+        //const foodChange = document.querySelector('#change-food')
+        //const food_outBtn = document.querySelector('#out-btn__food')
+        //const del_foodBtn = document.querySelectorAll('#delete-food')
+        //const food_rejectBtn = document.querySelector('#reject-btn__food')
 
-        //Change
-        foodChange.onclick = function () {
-            add_FoodLayout.style.display = "block";
-            add_FoodLayout.parentElement.style.display = "flex"
-        }
-        //Save
-        food_outBtn.onclick = function () {
-            add_FoodLayout.style.display = "none";
-            add_FoodLayout.parentElement.style.display = "none"
-        }
+        ////Add
+        //foodAdd.onclick = function () {
+        //    add_FoodLayout.style.display = "block";
+        //    add_FoodLayout.parentElement.style.display = "flex"
+        //}
 
-        //Agree to delete
-        Array.from(del_foodBtn).forEach(function (item, index) {
-            item.onclick = function () {
-                del_FoodLayout.style.display = "block";
-                del_FoodLayout.parentElement.style.display = "flex"
-            }
-        })
+        ////Change
+        //foodChange.onclick = function () {
+        //    add_FoodLayout.style.display = "block";
+        //    add_FoodLayout.parentElement.style.display = "flex"
+        //}
+        ////Save
+        //food_outBtn.onclick = function () {
+        //    add_FoodLayout.style.display = "none";
+        //    add_FoodLayout.parentElement.style.display = "none"
+        //}
 
-        //
-        food_rejectBtn.onclick = function () {
-            del_FoodLayout.style.display = "none";
-            del_FoodLayout.parentElement.style.display = "none"
-        }
+        ////Agree to delete
+        //Array.from(del_foodBtn).forEach(function (item, index) {
+        //    item.onclick = function () {
+        //        del_FoodLayout.style.display = "block";
+        //        del_FoodLayout.parentElement.style.display = "flex"
+        //    }
+        //})
+
+        ////
+        //food_rejectBtn.onclick = function () {
+        //    del_FoodLayout.style.display = "none";
+        //    del_FoodLayout.parentElement.style.display = "none"
+        //}
+
+        ////Load
+        //$(document).ready(function () {
+        //    LoadFoodList();
+        //})
+
+        ////method
+        //function LoadFoodList() {
+        //    $.ajax({
+        //        url: '/Home/GetFoodList',
+        //        type: 'get',
+        //        success: function (data) {
+        //            console.log("ok")
+        //            if (data.code == 200) {
+        //                $('#rowFood').empty();
+        //                console.log(data.msg);
+        //                $.each(data.foodList, function (k, v) {
+        //                    let div = "<div class='food__wrap col l-3' id='" + v.Id +"'>";
+        //                    div += "<div class='contentmenu'>";
+        //                    div += "<img src='" + v.Image.Data + "' alt='' class='contentmenu-img' width='100%'>";
+        //                    div += "<div class='contentfood - wrap'>";
+        //                    div += "<h3>" + v.Name + "</h3>";
+        //                    div += "<span>" + v.OutputPrice + "</span>";
+        //                    div += "<div class='menu__wrap - order'>";
+        //                    div += "<div class='menu__order - empty'>";
+        //                    div += "<input type='checkbox' value='" + v.IsOutOfStock + "'>";
+        //                    div += "<span>Hết hàng</span>";
+        //                    div += "</div>";
+        //                    div += "<div class='menu__order - icon'>";
+        //                    div += "<i class='fas fa - pencil - alt'></i>";
+        //                    div += "<i class='fas fa - trash'></i>";
+        //                    div += "</div>";
+        //                    div += "</div>";
+        //                    div += "</div>";
+        //                    div += "</div>";
+        //                    $('#rowShowFood').append(div);
+        //                });
+        //            }
+        //        }
+        //    });
+        //}
     </script>
 }
 

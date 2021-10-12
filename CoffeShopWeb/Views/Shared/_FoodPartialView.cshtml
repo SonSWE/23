@@ -1,0 +1,21 @@
+﻿@using CoffeShopWeb.Models;
+
+@model Food
+
+<div class="content__menu" id="@Model.Id">
+    <img src="@Model.Image.Data" alt="" class="content__menu-img" width="100%">
+    <div class="content__food-wrap">
+        <h3>@Model.Name</h3>
+        <span>@Model.OutputPrice</span>
+        <div class="menu__wrap-order">
+            <div class="menu__order-empty">
+                <input type="checkbox">
+                <span>hết hàng</span>
+            </div>
+            <div class="menu__order-icon">
+                <button name="view"><i class="fas fa-pencil-alt" ></i></button>
+                <i class="fas fa-trash"></i>
+            </div>
+        </div>
+    </div>
+</div>

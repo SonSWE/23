@@ -1,8 +1,4 @@
-﻿@using CoffeShopWeb.Models;
-@using System.Collections.ObjectModel;
-
-@model ObservableCollection<FoodCategory>
-
+﻿
 @{
     ViewBag.Title = "FoodCategories";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -26,19 +22,11 @@
 <div class="row">
     <div style="display: block;" class="col l-12">
         <table cellspacing class="table-content" id="TableCategory">
-            <tr>
-                <th>STT</th>
-                <th>Tên</th>
-                <th>Ghi chú</th>
-                <th>Người tạo</th>
-                <th>Ngày tạo</th>
-                <th>Người chỉnh sửa</th>
-                <th>Ngày chỉnh chửa</th>
-                <th>Chức năng</th>
-            </tr>
+
         </table>
     </div>
 </div>
+
 <div class="box__layout">
     <div id="cate-add" class="box__layout-add">
         <div class="layout-add__header">
@@ -70,7 +58,7 @@
     </div>
 </div>
 
-@section scripts{
+@section Scripts{
     <script>
         const add_CateLayout = document.querySelector('#cate-add')
         const delete_CateLayout = document.querySelector('#delete-cate_layout')
@@ -79,8 +67,6 @@
         $(document).ready(function () {
             LoadCategoryList();
         })
-
-
 
         //button add new
         $('#btn-add__cate').click(function () {
@@ -113,7 +99,7 @@
 
             //show infor
             $.ajax({
-                url: '/Home/ViewInfor',
+                url: '/Home/GetInforCategory',
                 type: 'get',
                 data: {
                     id: id
@@ -274,12 +260,15 @@
             delete_CateLayout.style.display = "none";
             delete_CateLayout.parentElement.style.display = "none";
         });
+
+        
         //method
         function LoadCategoryList() {
             $.ajax({
-                url: '/Home/GetCategoryList',
-                type: 'get',
+                url: "/Home/GetCategoryList",
+                type: "get",
                 success: function (data) {
+                    console.log(data.code);
                     if (data.code == 200) {
                         $('#TableCategory').empty();
 
@@ -293,7 +282,9 @@
                         tr += '<th>Ngày chỉnh sửa</th>';
                         tr += '<th>Chức năng</th>';
                         tr += '</tr>';
+
                         $('#TableCategory').append(tr);
+
                         var i = 1;
                         $.each(data.CategoryList, function (k, v) {
                             
@@ -307,46 +298,7 @@
                             tr += '<th>' + v.DateChange + '</th>';
                             tr += '<th><button class="delete-cate-btn fas fa-trash" name="view"></button>&nbsp;<button class="add-cate-btn fas fa-pencil-alt" name="edit"></button>&nbsp;<button class="delete-cate-btn fas fa-trash" name="delete"></button>&nbsp;</th>';
                             tr += '</tr>';
-                            i++;
-                            $('#TableCategory').append(tr);
-                        });
-                    }
-                }
-            });
-        }
-
-        function SearchCategory() {
-            $.ajax({
-                url: '/Home/',
-                type: 'get',
-                success: function (data) {
-                    if (data.code == 200) {
-                        $('#TableCategory').empty();
-
-                        let tr = '<tr>';
-                        tr += '<th>STT</th>';
-                        tr += '<th>Tên</th>';
-                        tr += '<th>Ghi chú</th>';
-                        tr += '<th>Người thêm</th>';
-                        tr += '<th>Ngày thêm</th>';
-                        tr += '<th>Người chỉnh sửa</th>';
-                        tr += '<th>Ngày chỉnh sửa</th>';
-                        tr += '<th>Chức năng</th>';
-                        tr += '</tr>';
-                        $('#TableCategory').append(tr);
-                        var i = 1;
-                        $.each(data.CategoryList, function (k, v) {
-                            let tr = "<tr id='" + v.Id + "'>";
-                            tr += '<th>' + i + '</th>';
-                            tr += '<th>' + v.Name + '</th>';
-                            tr += '<th>' + v.Note + '</th>';
-                            tr += '<th>' + v.NameUserAdd + '</th>';
-                            tr += '<th>' + v.DateAdd + '</th>';
-                            tr += '<th>' + v.NameUserChange + '</th>';
-                            tr += '<th>' + v.DateChange + '</th>';
-                            tr += '<th><button class="delete-cate-btn fas fa-trash" name="view"></button>&nbsp;<button class="add-cate-btn fas fa-pencil-alt" name="edit"></button>&nbsp;<button class="delete-cate-btn fas fa-trash" name="delete"></button>&nbsp;</th>';
-                            tr += '</tr>';
-                            i++;
+                            i++;    
                             $('#TableCategory').append(tr);
                         });
                     }

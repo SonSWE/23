@@ -169,6 +169,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Model1.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\sysdiagram.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Table.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -244,11 +247,10 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\MainMenu.cshtml" />
-    <Content Include="Views\Shared\_FoodInforPartialView.cshtml" />
     <Content Include="Views\Shared\_payPage.cshtml" />
     <Content Include="Views\Order\Cart.cshtml" />
     <Content Include="Views\Order\Paid.cshtml" />
-    <Content Include="Views\Shared\_FoodCategoryPartialView.cshtml" />
+    <Content Include="Views\Shared\_FoodPartialView.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

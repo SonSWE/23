@@ -13,10 +13,10 @@ namespace CoffeShopWeb.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class CoffeeShopWebEntities : DbContext
+    public partial class CoffeeShopWebEntities1 : DbContext
     {
-        public CoffeeShopWebEntities()
-            : base("name=CoffeeShopWebEntities")
+        public CoffeeShopWebEntities1()
+            : base("name=CoffeeShopWebEntities1")
         {
         }
     
@@ -31,6 +31,7 @@ namespace CoffeShopWeb.Models
         public virtual DbSet<FoodCategory> FoodCategories { get; set; }
         public virtual DbSet<Food> Foods { get; set; }
         public virtual DbSet<Image> Images { get; set; }
+        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<Table> Tables { get; set; }
     }
 }

@@ -76,6 +76,16 @@
     <Property Name="Data" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="Foods" Relationship="Self.FK__Foods__IdImage__37A5467C" FromRole="Images" ToRole="Foods" />
   </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
   <EntityType Name="Table">
     <Key>
       <PropertyRef Name="Id" />
@@ -147,13 +157,14 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityContainer Name="CoffeeShopWebEntities" annotation:LazyLoadingEnabled="true">
+  <EntityContainer Name="CoffeeShopWebEntities1" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Accounts" EntityType="Self.Account" />
     <EntitySet Name="Bills" EntityType="Self.Bill" />
     <EntitySet Name="BillInfoes" EntityType="Self.BillInfo" />
     <EntitySet Name="FoodCategories" EntityType="Self.FoodCategory" />
     <EntitySet Name="Foods" EntityType="Self.Food" />
     <EntitySet Name="Images" EntityType="Self.Image" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
     <EntitySet Name="Tables" EntityType="Self.Table" />
     <AssociationSet Name="FK__Bill__DateCheckO__3C69FB99" Association="Self.FK__Bill__DateCheckO__3C69FB99">
       <End Role="Tables" EntitySet="Tables" />

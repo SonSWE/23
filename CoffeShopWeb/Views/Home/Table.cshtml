@@ -12,28 +12,10 @@
         </div>
     </div>
 </div>
-<div class="row">
-    <div style="display: block;" class="col l-3">
-        <div class="table__menu-wrap">
-            <h3>Ban1</h3>
-            <div class="table__menu-btn">
-                <i id="fix-table" class="fas fa-pencil-alt"></i>
-                <i class="fas fa-cash-register"></i>
-                <i id="delete-table" class="fas fa-edit"></i>
-            </div>
-        </div>
-    </div>
-    <div style="display: block;" class="col l-3">
-        <div class="table__menu-wrap">
-            <h3>Ban1</h3>
-            <div class="table__menu-btn">
-                <i id="fix-table" class="fas fa-pencil-alt"></i>
-                <i class="fas fa-cash-register"></i>
-                <i id="delete-table" class="fas fa-edit"></i>
-            </div>
-        </div>
-    </div>
+<div class="row" id="rowTable">
+     
 </div>
+
 <div class="box__layout">
     <div id="table-add" class="box__layout-add">
         <div class="layout-add__header">
@@ -90,6 +72,8 @@
         const table_outfixBtn = document.querySelector('#tbout-btn__fix')
         const table_delBtn = document.querySelectorAll('#delete-table')
         const table_rejectBtn = document.querySelector('#reject-btn__table')
+
+
         btnTable.onclick = function () {
             add_TableLayout.style.display = "block";
             add_TableLayout.parentElement.style.display = "flex"
@@ -121,5 +105,8 @@
             table_fixLayout.style.display = "none";
             table_fixLayout.parentElement.style.display = "none"
         }
+
+
+        
     </script>
 }
