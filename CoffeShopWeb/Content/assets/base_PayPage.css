@@ -1,0 +1,61 @@
+:root{
+    --white-color:#fff;
+    --black-color:#000;
+    --main-brown:#9B532C;
+    --second-white:#FEF8F2;
+    --dark-brown:#865439;
+    --make-border:1px solid rgba(0,0,0,.125);
+    --make-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+
+}
+*{
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+html{
+    font-size: 62.5%;
+    line-height: 1.4rem;
+    font-family: 'Poppins', sans-serif;
+}
+/* nut gio hang/da thanh toan */
+.container__content{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+.bill-header__cart.active{
+    color: #F46F25;
+}
+.bill-header__cart.active::after{
+    position: absolute;
+    content: "";
+    width: 120px;
+    top: 120%;
+    left: 29%;
+    height: 3px;
+    border-radius: 5px;
+    background-color: #F46F25;
+}
+.bill-header__sold.active{
+    color: #F46F25;
+}
+.bill-header__sold.active::after{
+    position: absolute;
+    content: "";
+    width: 160px;
+    top: 120%;
+    left: 22%;
+    height: 3px;
+    border-radius: 5px;
+    background-color: #F46F25;
+}
+/* chuyen trang bill/sold */
+.content__bill-wrap.active{
+    display: block;
+}
+.content__sold-wrap.active{
+    display: block;
+}

@@ -13,7 +13,7 @@ namespace CoffeShopWeb.Controllers
         {
             if (Session["usernameLogin"] != null)
             {
-                return RedirectToAction("Food", "Home");
+                return RedirectToAction("MainMenu", "Home");
             }
             return View();
         }
@@ -24,7 +24,7 @@ namespace CoffeShopWeb.Controllers
             if (username == "admin" && password == "admin")
             {
                 Session["usernameLogin"] = username;
-                return RedirectToAction("Food", "Home");
+                return RedirectToAction("MainMenu", "Home");
             }
             return View();
         }
