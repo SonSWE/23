@@ -134,5 +134,8 @@
             del_CateLayout.style.display = "none";
             del_CateLayout.parentElement.style.display = "none"
         }
+        const navBtn = document.querySelectorAll('.sidebar__menu-link')
+        document.querySelector('.sidebar__menu-link.active').classList.remove('active')
+        navBtn[2].classList.add('active')
     </script>
 }
