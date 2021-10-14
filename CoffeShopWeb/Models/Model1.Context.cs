@@ -13,10 +13,10 @@ namespace CoffeShopWeb.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class CoffeeShopWebEntities1 : DbContext
+    public partial class CoffeeShopWebEntities : DbContext
     {
-        public CoffeeShopWebEntities1()
-            : base("name=CoffeeShopWebEntities1")
+        public CoffeeShopWebEntities()
+            : base("name=CoffeeShopWebEntities")
         {
         }
     

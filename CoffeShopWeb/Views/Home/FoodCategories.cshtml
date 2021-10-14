@@ -21,8 +21,8 @@
 
 <div class="row">
     <div style="display: block;" class="col l-12">
-        <table cellspacing class="table-content" id="TableCategory">
-
+        <table cellspacing class="table-content" >
+            <tbody id="TableCategory"> </tbody>
         </table>
     </div>
 </div>
@@ -106,9 +106,10 @@
                 },
                 success: function (data) {
                     if (data.code == 200) {
+                        const category = JSON.parse(data.Category)
                         //show infor category
-                        $('#name').val(data.infor.Name);
-                        $('#note').val(data.infor.Note);
+                        $('#name').val(category.Name);
+                        $('#note').val(category.Note);
 
                         //set up modal to show infor
                         $('#name').prop('readonly', true);
@@ -132,17 +133,18 @@
             let id = $(this).closest('tr').attr('Id');
 
             $.ajax({
-                url: '/Home/ViewInfor',
+                url: '/Home/GetInforCategory',
                 type: 'get',
                 data: {
                     id: id
                 },
                 success: function (data) {
                     if (data.code == 200) {
+                        const category = JSON.parse(data.Category)
                         //show infor item
                         $('#id').val(id);
-                        $('#name').val(data.infor.Name);
-                        $('#note').val(data.infor.Note);
+                        $('#name').val(category.Name);
+                        $('#note').val(category.Note);
 
                         //set up to edit item
                         $('#name').prop('readonly', false);
@@ -268,11 +270,12 @@
                 url: "/Home/GetCategoryList",
                 type: "get",
                 success: function (data) {
-                    console.log(data.code);
+                    
                     if (data.code == 200) {
+
                         $('#TableCategory').empty();
 
-                        let tr = '<tr>';
+                       let tr = '<tr>';
                         tr += '<th>STT</th>';
                         tr += '<th>Tên</th>';
                         tr += '<th>Ghi chú</th>';
@@ -286,7 +289,10 @@
                         $('#TableCategory').append(tr);
 
                         var i = 1;
-                        $.each(data.CategoryList, function (k, v) {
+
+                        const categories = JSON.parse(data.CategoryList)
+
+                        $.each(categories, function (k, v) {
                             
                             let tr = "<tr id='" + v.Id + "'>";
                             tr += '<th>' + i + '</th>';
@@ -296,7 +302,7 @@
                             tr += '<th>' + v.DateAdd + '</th>';
                             tr += '<th>' + v.NameUserChange + '</th>';
                             tr += '<th>' + v.DateChange + '</th>';
-                            tr += '<th><button class="delete-cate-btn fas fa-trash" name="view"></button>&nbsp;<button class="add-cate-btn fas fa-pencil-alt" name="edit"></button>&nbsp;<button class="delete-cate-btn fas fa-trash" name="delete"></button>&nbsp;</th>';
+                            tr += '<th><button class="delete-cate-btn fas fa-ellipsis-v" name="view"></button>&nbsp;<button class="add-cate-btn fas fa-pencil-alt" name="edit"></button>&nbsp;<button class="delete-cate-btn fas fa-trash" name="delete"></button>&nbsp;</th>';
                             tr += '</tr>';
                             i++;    
                             $('#TableCategory').append(tr);

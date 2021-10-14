@@ -1,7 +1,7 @@
-﻿@using CoffeShopWeb.Models;
+﻿@*@using CoffeShopWeb.Models;
 @using System.Collections.ObjectModel;
 
-@model ObservableCollection<Food>
+@model ObservableCollection<Food>*@
 
 @{
     ViewBag.Title = "Food";
@@ -10,11 +10,12 @@
 
 <div class="row">
     <div class="col">
-        <div id="food" class="content__food">
+        <div id="btnAdd" class="content__food">
             <i class="fas fa-plus"></i>
             <span>Thêm mới</span>
         </div>
     </div>
+
     <div class="menu__select col l-o-2 l-4">
         <label for="food">Danh mục</label>
         <select name="food" id="food">
@@ -22,6 +23,7 @@
             <option value="nước cam">nước cam</option>
             <option value="bánh ngọt">bánh ngọt</option>
             <option value="Trà Sữa">Trà Sữa</option>
+            
         </select>
     </div>
     <div style="display: block;" class="col l-4">
@@ -31,49 +33,45 @@
         </div>
     </div>
 </div>
-
 <div class="row " id="rowShowFood">
-    @foreach(var item in Model)
-    {
-        <div class="food__wrap col l-3">
-            @{
-                Html.RenderPartial("_FoodPartialView",item);
-            }
-        </div>
-    }
-
+    
 </div>
 
 <div class="box__layout">
     <div id="food-add" class="box__layout-add food">
+        <input hidden id="id" value=""/>
         <div class="layout-add__header">
-            <h3>Thêm món</h3>
+            <h3 id="modelTitle">Thêm món</h3>
         </div>
         <div class="food__add-content">
-            <div class="add__img-wrap">
-                <img src="https://lh3.googleusercontent.com/proxy/7xI1HtSI_Aa-y0Em6gOmyi8k_fxZ3dhe3K8-oKZgeSI_xBUy27L3ATZ6eNyUB_g__TmrSpqvFQhJKqKYbFk" alt="" width="300px" height="300px">
+            <div class="add__img-wrap" id="addImgWrap">
+                <img src="https://www.bdsnhatrang.net/uploads/no-img.jpg" alt="" id="show_picture" name="picture" width="300px" height="300px">
+                <input id="ChoseImg" accept="image/*" type="file" name="fileImg" width="300px" />
             </div>
             <div class="layout-add__content food">
-                <div style="display:block" class="add__input-wrap food ">
-                    <input type="text" placeholder="Tên danh mục">
+                <div style="display:block" class="add__input-wrap food">
+                    <input id="name" type="text" placeholder="Tên món">
                 </div>
-                <div style="display:block" class="add__input-wrap food ">
-                    <input type="text" placeholder="Danh mục">
+                <div style="display:block" class="add__input-wrap food">
+                    <select name="category" id="selectedCategory">
+                        
+                    </select>
                 </div>
                 <div class="price__input">
-                    <div style="display:block" class="add__input-wrap food ">
-                        <input type="text" placeholder="Giá nhập">
+                    <div style="display:block" class="add__input-wrap food">
+                        <input id="inputPrice" type="text" placeholder="Giá nhập">
                     </div>
-                    <div style="display:block" class="add__input-wrap food ">
-                        <input type="text" placeholder="Giá bán">
+                    <div style="display:block" class="add__input-wrap food">
+                        <input id="outputPrice" type="text" placeholder="Giá bán">
                     </div>
                 </div>
-                <div style="display:block" class="add__input-wrap food ">
-                    <input type="text" placeholder="Số lượng">
+                <div style="display:block" class="add__input-wrap food">
+                    <input id="count" type="text" placeholder="Số lượng">
                 </div>
-                <div style="display:block" class="add__input-wrap food ">
-                    <input type="text" placeholder="Ghi chú">
+                <div style="display:block" class="add__input-wrap food">
+                    <input id="note" type="text" placeholder="Ghi chú">
                 </div>
+                
                 <div class="layout-add__btn food">
                     <button id="save-btn__food" class="layout-add__save">Lưu</button>
                     <button id="out-btn__food" class="layout-add__out ">Thoát</button>
@@ -97,83 +95,231 @@
         const add_FoodLayout = document.querySelector('#food-add')
         const del_FoodLayout = document.querySelector('#delete-food_layout')
 
-        //const foodAdd = document.querySelector('#food') // nut them san pham trong menu mon
-        //const foodChange = document.querySelector('#change-food')
-        //const food_outBtn = document.querySelector('#out-btn__food')
-        //const del_foodBtn = document.querySelectorAll('#delete-food')
-        //const food_rejectBtn = document.querySelector('#reject-btn__food')
+        //Load
+        $(document).ready(function () {
+            LoadFoodList();
+        })
 
-        ////Add
-        //foodAdd.onclick = function () {
-        //    add_FoodLayout.style.display = "block";
-        //    add_FoodLayout.parentElement.style.display = "flex"
-        //}
+        //button add new
+        $('#btnAdd').click(function () {
+            //set up to add new item
+            $('#id').val('');
+            $('#modelTitle').text('Thêm món mới');
 
-        ////Change
-        //foodChange.onclick = function () {
-        //    add_FoodLayout.style.display = "block";
-        //    add_FoodLayout.parentElement.style.display = "flex"
-        //}
-        ////Save
-        //food_outBtn.onclick = function () {
-        //    add_FoodLayout.style.display = "none";
-        //    add_FoodLayout.parentElement.style.display = "none"
-        //}
 
-        ////Agree to delete
-        //Array.from(del_foodBtn).forEach(function (item, index) {
-        //    item.onclick = function () {
-        //        del_FoodLayout.style.display = "block";
-        //        del_FoodLayout.parentElement.style.display = "flex"
+            //open modal add new
+            add_FoodLayout.style.display = "block";
+            add_FoodLayout.parentElement.style.display = "flex";
+        });
+
+        //Load categories combobox
+        $.ajax({
+            url: "/Home/GetCategoryList",
+            type: "get",
+            success: function (data) {
+                if (data.code == 200) {
+                    $('#selectedCategory').empty();
+                    const categories = JSON.parse(data.CategoryList)
+                    $.each(categories, function (k, v) {
+                        let option = "<option value='" + v.Id + "'>" + v.Name + "</option>"
+                        $('#selectedCategory').append(option);
+                    });
+                }
+            }
+        });
+
+        //buntton close
+        $('#out-btn__food').click(function () {
+            //set up modal to default
+            $('#name').prop('readonly', false);
+            $('#note').prop('readonly', false);
+            $('#selectedCategory').prop('readonly', false);
+            $('#inputPrice').prop('readonly', false);
+            $('#outputPrice').prop('readonly', false);
+            $('#count').prop('readonly', false);
+            $('#ChoseImg').show();
+            $('#save-btn__food').show();
+
+            $('#name').val('');
+            $('#selectedCategory').val('');
+            $('#inputPrice').val('');
+            $('#outputPrice').val('');
+            $('#count').val('');
+            $('#note').val('');
+            $('#show_picture').attr('src', "https://www.bdsnhatrang.net/uploads/no-img.jpg");
+            
+            //close modal
+            add_FoodLayout.style.display = "none";
+            add_FoodLayout.parentElement.style.display = "none"
+        });
+
+        //Chose image event
+        $('#ChoseImg').change(function () {
+            //get file uploaded
+            var fileUpload = $(this).get(0).files;
+            var data = new FormData();
+            data.append("File", fileUpload[0])
+
+            //save gile uploaded and get url to show
+            $.ajax({
+                type: 'post',
+                url: '/Home/UpLoadImg',
+                contentType: false,
+                processData: false,
+                data: data,
+                success: function (url) {
+                    $('#show_picture').attr('src', url.urlImg)
+                }
+            })
+        });
+
+
+        ////button save
+        //$('#save-btn__food').click(function () {
+        //    //get value input
+        //    let name = $('#name').val().trim();
+        //    let note = $('#note').val().trim();
+        //    let note = $('#category').val().trim();
+        //    let note = $('#inputPrice').val().trim();
+        //    let note = $('#outputPrice').val().trim();
+        //    let note = $('#count').val().trim();
+
+        //    //get id
+        //    let id = $('#id').val().trim();
+
+        //    //check data is valid or invalid
+        //    if (name.length == 0) {
+        //        alert('Vui lòng nhập đủ dữ liệu để tiếp tục');
+        //        return;
         //    }
-        //})
 
-        ////
-        //food_rejectBtn.onclick = function () {
-        //    del_FoodLayout.style.display = "none";
-        //    del_FoodLayout.parentElement.style.display = "none"
-        //}
-
-        ////Load
-        //$(document).ready(function () {
-        //    LoadFoodList();
-        //})
-
-        ////method
-        //function LoadFoodList() {
-        //    $.ajax({
-        //        url: '/Home/GetFoodList',
-        //        type: 'get',
-        //        success: function (data) {
-        //            console.log("ok")
-        //            if (data.code == 200) {
-        //                $('#rowFood').empty();
-        //                console.log(data.msg);
-        //                $.each(data.foodList, function (k, v) {
-        //                    let div = "<div class='food__wrap col l-3' id='" + v.Id +"'>";
-        //                    div += "<div class='contentmenu'>";
-        //                    div += "<img src='" + v.Image.Data + "' alt='' class='contentmenu-img' width='100%'>";
-        //                    div += "<div class='contentfood - wrap'>";
-        //                    div += "<h3>" + v.Name + "</h3>";
-        //                    div += "<span>" + v.OutputPrice + "</span>";
-        //                    div += "<div class='menu__wrap - order'>";
-        //                    div += "<div class='menu__order - empty'>";
-        //                    div += "<input type='checkbox' value='" + v.IsOutOfStock + "'>";
-        //                    div += "<span>Hết hàng</span>";
-        //                    div += "</div>";
-        //                    div += "<div class='menu__order - icon'>";
-        //                    div += "<i class='fas fa - pencil - alt'></i>";
-        //                    div += "<i class='fas fa - trash'></i>";
-        //                    div += "</div>";
-        //                    div += "</div>";
-        //                    div += "</div>";
-        //                    div += "</div>";
-        //                    $('#rowShowFood').append(div);
-        //                });
+        //    //check event is add new or edit
+        //    if (id.length == 0) {
+        //        //add new category
+        //        $.ajax({
+        //            url: '/Home/AddCategory',
+        //            type: 'post',
+        //            data: {
+        //                name: name,
+        //                note: note
+        //            },
+        //            success: function (data) {
+        //                if (data.code == 200) {
+        //                    $('#name').val('');
+        //                    $('#note').val('');
+        //                    LoadCategoryList();
+        //                    alert(data.msg);
+        //                } else {
+        //                    alert(data.msg);
+        //                }
         //            }
-        //        }
-        //    });
-        //}
+        //        });
+        //    } else {
+        //        //save change food
+        //        $.ajax({
+        //            url: '/Home/EditCategory',
+        //            type: 'post',
+        //            data: {
+        //                id: id,
+        //                name: name,
+        //                note: note
+        //            },
+        //            success: function (data) {
+        //                if (data.code == 200) {
+        //                    $('#name').val('');
+        //                    $('#note').val('');
+        //                    LoadCategoryList();
+        //                    alert(data.msg);
+        //                } else {
+        //                    alert(data.msg);
+        //                }
+        //            }
+        //        });
+        //    }
+
+        //});
+
+        
+
+        //button show infor each row item
+        $(document).on('click', "div[name='view']", function () {
+            //Get id from food is clicking
+            let id = $(this).closest('div').attr('Id');
+
+            //show infor
+            $.ajax({
+                url: '/Home/GetInforFood',
+                type: 'get',
+                data: {
+                    id: id
+                },
+                success: function (data) {
+                    if (data.code == 200) {
+                        const food = JSON.parse(data.food)
+                        //show infor category
+                        $('#name').val(food.Name);
+                        $('#selectedCategory').val(food.FoodCategory.Name);
+                        $('#inputPrice').val(food.IntputPrice);
+                        $('#outputPrice').val(food.OutputPrice);
+                        $('#count').val(food.Stock);
+                        $('#note').val(food.Note);
+                        $('#show_picture').attr('src', food.Image.Data);
+
+                        //set up modal to show infor
+                        $('#name').prop('readonly', true);
+                        $('#note').prop('readonly', true);
+                        $('#selectedCategory').prop('readonly', true);
+                        $('#inputPrice').prop('readonly', true);
+                        $('#outputPrice').prop('readonly', true);
+                        $('#count').prop('readonly', true);
+                        $('#ChoseImg').hide();
+                        $('#save-btn__food').hide();
+
+                        //open modal show item
+                        $('#modelTitle').text('Thông tin chi tiết');
+                        add_FoodLayout.style.display = "block";
+                        add_FoodLayout.parentElement.style.display = "flex";
+                    } else {
+                        alert(data.msg);
+                    }
+                }
+
+            });
+        });
+
+        //method
+        function LoadFoodList() {
+            $.ajax({
+                url: '/Home/GetFoodList',
+                type: 'get',
+                success: function (data) {
+                    if (data.code == 200) {
+                        const foods = JSON.parse(data.foodList)
+                        $('#rowShowFood').empty();
+                        $.each(foods, function (k, v) {
+                            let div = "<div class='food__wrap col l-3' name='view' id='" + v.Id + "'>";
+                            div += "<div class='content__menu'>";
+                            div += "<img src='" + v.Image.Data + "' class='content__menu-img' width='100%'>";
+                            div += "<div class='content__food-wrap'>";
+                            div += "<h3 >" + v.Name + "</h3>";
+                            div += "<span>" + v.OutputPrice + "</span>";
+                            div += "<div class='menu__wrap-order'>";
+                            div += "<div class='menu__order-empty'>";
+                            div += "<input type='checkbox' value='" + v.IsOutOfStock + "'>";
+                            div += "<span>Hết hàng</span>";
+                            div += "</div>";
+                            div += "<div class='menu__order-icon'>";
+                            div += "<button name='edit'><i class='fas fa-pencil-alt'></i></button><button name='delete'><i class='fas fa-trash'></i></button>";
+                            div += "</div>";
+                            div += "</div>";
+                            div += "</div>";
+                            div += "</div>";
+                            $('#rowShowFood').append(div);
+                        });
+                    }
+                }
+            });
+        }
     </script>
 }
 

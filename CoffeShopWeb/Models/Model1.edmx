@@ -344,7 +344,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="CoffeeShopWebEntities1" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="CoffeeShopWebEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Accounts" EntityType="Self.Account" />
           <EntitySet Name="Bills" EntityType="Self.Bill" />
           <EntitySet Name="BillInfoes" EntityType="Self.BillInfo" />
@@ -379,7 +379,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="CoffeeShopWebModelStoreContainer" CdmEntityContainer="CoffeeShopWebEntities1">
+        <EntityContainerMapping StorageEntityContainer="CoffeeShopWebModelStoreContainer" CdmEntityContainer="CoffeeShopWebEntities">
           <EntitySetMapping Name="Accounts">
             <EntityTypeMapping TypeName="CoffeeShopWebModel.Account">
               <MappingFragment StoreEntitySet="Accounts">

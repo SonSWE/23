@@ -22,10 +22,10 @@ namespace CoffeShopWeb.Models
             }
         }
 
-        public CoffeeShopWebEntities1 DB { get; set; }
+        public CoffeeShopWebEntities DB { get; set; }
         private dataProvider()
         {
-            DB = new CoffeeShopWebEntities1();
+            DB = new CoffeeShopWebEntities();
         }
     }
 }
