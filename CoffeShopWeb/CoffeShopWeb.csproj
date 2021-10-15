@@ -260,7 +260,6 @@
     <Content Include="Views\Shared\_payPage.cshtml" />
     <Content Include="Views\Order\Cart.cshtml" />
     <Content Include="Views\Order\Paid.cshtml" />
-    <Content Include="Views\Shared\_FoodPartialView.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

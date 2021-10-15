@@ -11,13 +11,13 @@ using CloudinaryDotNet.Actions;
 using System.IO;
 using System.Drawing;
 using System.Web.UI.HtmlControls;
+using System.Runtime.CompilerServices;
+using System.ComponentModel;
 
 namespace CoffeShopWeb.Controllers
 {
     public class HomeController : Controller
     {
-
-
 
         #region Menu
         public ActionResult MainMenu()
@@ -144,6 +144,31 @@ namespace CoffeShopWeb.Controllers
             }
         }
 
+        [HttpGet]
+        public JsonResult SearchCategory(string nameCategory)
+        {
+            try
+            {
+                ObservableCollection<FoodCategory> categoryList;
+                if(nameCategory == "" || nameCategory == null)
+                {
+                    categoryList = new ObservableCollection<FoodCategory>(dataProvider.Ins.DB.FoodCategories.Where(x => x.IsDel == false));
+                } 
+                else
+                {
+                    categoryList = new ObservableCollection<FoodCategory>(dataProvider.Ins.DB.FoodCategories.Where(x => x.IsDel == false && x.Name.Contains(nameCategory)));
+                }
+
+                var list = JsonConvert.SerializeObject(categoryList, new JsonSerializerSettings { ReferenceLoopHandling = ReferenceLoopHandling.Ignore });
+
+                return Json(new { code = 200, CategoryList = list, msg = "Tìm danh mục thành công" }, JsonRequestBehavior.AllowGet);
+            }
+            catch(Exception ex)
+            {
+                return Json(new { code = 500, msg = "Tìm danh mục thất bại: " + ex.Message }, JsonRequestBehavior.AllowGet);
+            }
+        }
+
         [HttpPost]
         public JsonResult AddCategory(string name, string note)
         {
@@ -238,14 +263,15 @@ namespace CoffeShopWeb.Controllers
 
         #region method
 
-        public string dataImg { get; set; }
+        
 
         [HttpGet]
         public JsonResult GetFoodList()
         {
             try
             {
-                ObservableCollection<Food> foodList = new ObservableCollection<Food>(dataProvider.Ins.DB.Foods.Where(x => x.IsDel == false));
+                ObservableCollection<Food> foodList;
+                foodList = new ObservableCollection<Food>(dataProvider.Ins.DB.Foods.Where(x => x.IsDel == false));
 
                 var list = JsonConvert.SerializeObject(foodList, new JsonSerializerSettings { ReferenceLoopHandling = ReferenceLoopHandling.Ignore });
 
@@ -254,6 +280,38 @@ namespace CoffeShopWeb.Controllers
             catch (Exception ex)
             {
                 return Json(new { code = 500, msg = "Lấy danh sách món thât bại: " + ex.Message }, JsonRequestBehavior.AllowGet);
+            }
+        }
+
+        [HttpGet]
+        public JsonResult SearchFood(string nameSearch, string idCategory)
+        {
+            try
+            {
+                ObservableCollection<Food> foodList;
+                
+                if (nameSearch == null || nameSearch == "")
+                {
+                    if (idCategory== "123987")
+                        foodList = new ObservableCollection<Food>(dataProvider.Ins.DB.Foods.Where(x => x.IsDel == false));
+                    else
+                        foodList = new ObservableCollection<Models.Food>(dataProvider.Ins.DB.Foods.Where(x => x.IsDel == false && x.IdCategory == idCategory));
+                }
+                else
+                {
+                    if (idCategory == "123987")
+                        foodList = new ObservableCollection<Models.Food>(dataProvider.Ins.DB.Foods.Where(x => x.IsDel == false && x.Name.Contains(nameSearch)));
+                    else
+                        foodList = new ObservableCollection<Models.Food>(dataProvider.Ins.DB.Foods.Where(x => x.IdCategory == idCategory && x.Name.Contains(nameSearch)));
+                }
+
+                var list = JsonConvert.SerializeObject(foodList, new JsonSerializerSettings { ReferenceLoopHandling = ReferenceLoopHandling.Ignore });
+
+                return Json(new { code = 200, foodList = list, msg = "Tìm món thành công" }, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception ex)
+            {
+                return Json(new { code = 500, msg = "Tìm món thât bại : " + ex.Message }, JsonRequestBehavior.AllowGet);
             }
         }
 
@@ -280,7 +338,7 @@ namespace CoffeShopWeb.Controllers
             try
             {
                 string FoldeerUpload = "Content\\UploadImg";
-                
+                string result = "";
                 var fileUnload = Request.Files["File"];
                 string path = AppDomain.CurrentDomain.BaseDirectory + FoldeerUpload;
 
@@ -296,10 +354,10 @@ namespace CoffeShopWeb.Controllers
 
                     fileUnload.SaveAs(Path.Combine(path, fileName));
 
-                    dataImg = "~/" + "Content/UploadImg" + "/" + fileName;
-
+                    result = "/Content/UploadImg" + "/" + fileName;
+                    Session["dataImg"] = result;
                 }
-                return Json(new { code = 200, urlImg = dataImg, msg = "Tải ảnh thành công" }, JsonRequestBehavior.AllowGet);
+                return Json(new { code = 200, urlImg = result, msg = "Tải ảnh thành công" }, JsonRequestBehavior.AllowGet);
             }
             catch (Exception ex)
             {
@@ -309,18 +367,29 @@ namespace CoffeShopWeb.Controllers
         }
 
         [HttpPost]
-        public JsonResult AddFood(string name, string idCategory, string note, int stock, double inputPrice, double outputPrice)
+        public JsonResult AddFood(string name, string idCategory, string note, int stock, double inputPrice, double outputPrice )
         {
             try
             {
+                string urlImg = (string)Session["dataImg"];
                 string Id_image = Guid.NewGuid().ToString();
-                var img = new Models.Image() { Id = Id_image, Data = dataImg };
+                var img = new Models.Image() { Id = Id_image, Data = urlImg };
                 dataProvider.Ins.DB.Images.Add(img);
                 dataProvider.Ins.DB.SaveChanges();
 
-                var food = new Food() { Id = Guid.NewGuid().ToString(), Name = name, IdCategory = idCategory, 
-                                                                        Stock = stock, IntputPrice = inputPrice, OutputPrice = outputPrice, 
-                                                                        IdImage = Id_image, IsOutOfStock = false, Note = note, IsDel = false };
+                var food = new Food()
+                {
+                    Id = Guid.NewGuid().ToString(),
+                    Name = name,
+                    IdCategory = idCategory,
+                    Stock = stock,
+                    IntputPrice = inputPrice,
+                    OutputPrice = outputPrice,
+                    IdImage = Id_image,
+                    IsOutOfStock = false,
+                    Note = note,
+                    IsDel = false
+                };
                 dataProvider.Ins.DB.Foods.Add(food);
                 dataProvider.Ins.DB.SaveChanges();
 
@@ -334,20 +403,26 @@ namespace CoffeShopWeb.Controllers
 
 
         [HttpPost]
-        public JsonResult EditFood(string id, string name, string idCategory, string note, int stock, double inputPrice, double outputPrice, string idImg)
+        public JsonResult EditFood(string id, string name, string idCategory, string note, int stock, double inputPrice, double outputPrice)
         {
             try
             {
                 var food = dataProvider.Ins.DB.Foods.Where(x => x.Id == id).SingleOrDefault();
+                var img = dataProvider.Ins.DB.Images.Where(x => x.Id == food.IdImage).SingleOrDefault();
                 food.Name = name;
                 food.IdCategory = idCategory;
                 food.Stock = stock;
                 food.IntputPrice = inputPrice;
                 food.OutputPrice = outputPrice;
                 food.Note = note;
-                food.IdImage = idImg;
-                dataProvider.Ins.DB.SaveChanges();
 
+                if (Session["dataImg"] != null)
+                {
+                    string urlImg = (string)Session["dataImg"];
+                    img.Data = urlImg;
+                }    
+                
+                dataProvider.Ins.DB.SaveChanges();
 
                 return Json(new { code = 200, msg = "Sửa món thành công!" }, JsonRequestBehavior.AllowGet);
             }
@@ -364,6 +439,7 @@ namespace CoffeShopWeb.Controllers
             {
                 var food = dataProvider.Ins.DB.Foods.Where(x => x.Id == id).SingleOrDefault();
                 food.IsDel = true;
+
                 dataProvider.Ins.DB.SaveChanges();
 
                 return Json(new { code = 200, msg = "Xóa món thành công!" }, JsonRequestBehavior.AllowGet);

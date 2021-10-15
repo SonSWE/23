@@ -13,8 +13,8 @@
     </div>
     <div style="display: block;" class="col l-o-4  l-4">
         <div class="content__find-wrap">
-            <input type="text" placeholder="Tìm kiếm" class="content__find">
-            <i class="fas fa-search"></i>
+            <input type="text" placeholder="Tìm kiếm" id="TextBoxSearch" class="content__find" />
+            <i id="startSearch" class="fas fa-search"></i>
         </div>
     </div>
 </div>
@@ -62,6 +62,9 @@
     <script>
         const add_CateLayout = document.querySelector('#cate-add')
         const delete_CateLayout = document.querySelector('#delete-cate_layout')
+        const navBtn = document.querySelectorAll('.sidebar__menu-link')
+        document.querySelector('.sidebar__menu-link.active').classList.remove('active')
+        navBtn[2].classList.add('active')
 
         //Load
         $(document).ready(function () {
@@ -263,7 +266,14 @@
             delete_CateLayout.parentElement.style.display = "none";
         });
 
-        
+        $('#startSearch').click(function () {
+            SearchCategory();
+        })
+
+        $('#TextBoxSearch').change(function () {
+            SearchCategory();
+        })
+
         //method
         function LoadCategoryList() {
             $.ajax({
@@ -272,47 +282,75 @@
                 success: function (data) {
                     
                     if (data.code == 200) {
-
-                        $('#TableCategory').empty();
-
-                       let tr = '<tr>';
-                        tr += '<th>STT</th>';
-                        tr += '<th>Tên</th>';
-                        tr += '<th>Ghi chú</th>';
-                        tr += '<th>Người thêm</th>';
-                        tr += '<th>Ngày thêm</th>';
-                        tr += '<th>Người chỉnh sửa</th>';
-                        tr += '<th>Ngày chỉnh sửa</th>';
-                        tr += '<th>Chức năng</th>';
-                        tr += '</tr>';
-
-                        $('#TableCategory').append(tr);
-
-                        var i = 1;
-
                         const categories = JSON.parse(data.CategoryList)
-
-                        $.each(categories, function (k, v) {
-                            
-                            let tr = "<tr id='" + v.Id + "'>";
-                            tr += '<th>' + i + '</th>';
-                            tr += '<th>' + v.Name + '</th>';
-                            tr += '<th>' + v.Note + '</th>';
-                            tr += '<th>' + v.NameUserAdd + '</th>';
-                            tr += '<th>' + v.DateAdd + '</th>';
-                            tr += '<th>' + v.NameUserChange + '</th>';
-                            tr += '<th>' + v.DateChange + '</th>';
-                            tr += '<th><button class="delete-cate-btn fas fa-ellipsis-v" name="view"></button>&nbsp;<button class="add-cate-btn fas fa-pencil-alt" name="edit"></button>&nbsp;<button class="delete-cate-btn fas fa-trash" name="delete"></button>&nbsp;</th>';
-                            tr += '</tr>';
-                            i++;    
-                            $('#TableCategory').append(tr);
-                        });
+                        MakeCategoryTable(categories);
                     }
                 }
             });
         }
-        const navBtn = document.querySelectorAll('.sidebar__menu-link')
-        document.querySelector('.sidebar__menu-link.active').classList.remove('active')
-        navBtn[2].classList.add('active')
+
+        function SearchCategory() {
+            let nameSearch = $('#TextBoxSearch').val().trim();
+            console.log("name", nameSearch);
+
+            $.ajax({
+                url: '/Home/SearchCategory',
+                type: 'get',
+                data: {
+                    nameCategory: nameSearch,
+                },
+                success: function (data) {
+                    if (data.code == 200) {
+                        const category = JSON.parse(data.CategoryList)
+                        MakeCategoryTable(category);
+                    }
+                }
+            });
+        }
+
+        function MakeCategoryTable(categories) {
+            $('#TableCategory').empty();
+
+            let tr = '<tr>';
+            tr += '<th>STT</th>';
+            tr += '<th>Tên</th>';
+            tr += '<th>Ghi chú</th>';
+            tr += '<th>Người thêm</th>';
+            tr += "<th>Ngày thêm</th>";
+            tr += '<th>Người chỉnh sửa</th>';
+            tr += "<th>Ngày chỉnh sửa</th>";
+            tr += '<th>Chức năng</th>';
+            tr += '</tr>';
+
+            $('#TableCategory').append(tr);
+
+            var i = 1;
+
+            $.each(categories, function (k, v) {
+
+                let tr = "<tr id='" + v.Id + "'>";
+                tr += '<th>' + i + '</th>';
+                tr += '<th>' + v.Name + '</th>';
+                tr += '<th>' + blankForNull(v.note)  + '</th>';
+                tr += '<th>' + blankForNull(v.NameUserAdd) + '</th>';
+                tr += "<th type='datetime'>" + new Date(v.DateAdd) + "</th>";
+                tr += '<th>' + blankForNull(v.NameUserChange) + '</th>';
+                tr += "<th type='datetime'>" + new Date(v.DateChange) + "</th>";
+                tr += '<th><button class="delete-cate-btn fas fa-ellipsis-v" name="view"></button>&nbsp;<button class="add-cate-btn fas fa-pencil-alt" name="edit"></button>&nbsp;<button class="delete-cate-btn fas fa-trash" name="delete"></button>&nbsp;</th>';
+                tr += '</tr>';
+                i++;
+                $('#TableCategory').append(tr);
+            });
+        }
+
+        function blankForNull(s) {
+            if (s == null) {
+                return "";
+            }
+            else {
+                return s;
+            }
+                
+        }
     </script>
 }

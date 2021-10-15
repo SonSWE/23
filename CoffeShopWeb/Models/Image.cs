@@ -11,8 +11,7 @@ namespace CoffeShopWeb.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.Web;
-
+    
     public partial class Image
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -23,8 +22,7 @@ namespace CoffeShopWeb.Models
     
         public string Id { get; set; }
         public string Data { get; set; }
-        public HttpPostedFileWrapper ImageFile { get; set; }
-
+    
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Food> Foods { get; set; }
     }
