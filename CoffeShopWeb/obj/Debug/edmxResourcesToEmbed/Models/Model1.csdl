@@ -1,0 +1,179 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CoffeeShopWebModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Account">
+    <Key>
+      <PropertyRef Name="Username" />
+    </Key>
+    <Property Name="Username" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Online" Type="Boolean" />
+    <Property Name="Permission" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Bill">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="IdTable" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Cash" Type="Double" Nullable="false" />
+    <Property Name="Total" Type="Double" Nullable="false" />
+    <Property Name="Note" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="NameUserOrder" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="DateCheckOut" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Table" Relationship="Self.FK__Bill__DateCheckO__3C69FB99" FromRole="Bill" ToRole="Tables" />
+    <NavigationProperty Name="BillInfoes" Relationship="Self.FK__BillInfo__TotalP__412EB0B6" FromRole="Bill" ToRole="BillInfo" />
+  </EntityType>
+  <EntityType Name="BillInfo">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="IdBill" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="IdFood" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Count" Type="Int32" Nullable="false" />
+    <Property Name="TotalPrice" Type="Double" Nullable="false" />
+    <NavigationProperty Name="Bill" Relationship="Self.FK__BillInfo__TotalP__412EB0B6" FromRole="BillInfo" ToRole="Bill" />
+    <NavigationProperty Name="Food" Relationship="Self.FK__BillInfo__IdFood__4222D4EF" FromRole="BillInfo" ToRole="Foods" />
+  </EntityType>
+  <EntityType Name="FoodCategory">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Note" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="NameUserAdd" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DateAdd" Type="DateTime" Precision="3" />
+    <Property Name="NameUserChange" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DateChange" Type="DateTime" Precision="3" />
+    <Property Name="IsDel" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Foods" Relationship="Self.FK__Foods__IsDel__36B12243" FromRole="FoodCategory" ToRole="Foods" />
+  </EntityType>
+  <EntityType Name="Food">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="IdCategory" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Stock" Type="Int32" Nullable="false" />
+    <Property Name="IntputPrice" Type="Double" Nullable="false" />
+    <Property Name="OutputPrice" Type="Double" Nullable="false" />
+    <Property Name="Note" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IdImage" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="IsOutOfStock" Type="Boolean" Nullable="false" />
+    <Property Name="IsDel" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="BillInfoes" Relationship="Self.FK__BillInfo__IdFood__4222D4EF" FromRole="Foods" ToRole="BillInfo" />
+    <NavigationProperty Name="FoodCategory" Relationship="Self.FK__Foods__IsDel__36B12243" FromRole="Foods" ToRole="FoodCategory" />
+    <NavigationProperty Name="Image" Relationship="Self.FK__Foods__IdImage__37A5467C" FromRole="Foods" ToRole="Images" />
+  </EntityType>
+  <EntityType Name="Image">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Data" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Foods" Relationship="Self.FK__Foods__IdImage__37A5467C" FromRole="Images" ToRole="Foods" />
+  </EntityType>
+  <EntityType Name="Table">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Status" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IsFull" Type="Boolean" Nullable="false" />
+    <Property Name="IsDel" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Bills" Relationship="Self.FK__Bill__DateCheckO__3C69FB99" FromRole="Tables" ToRole="Bill" />
+  </EntityType>
+  <Association Name="FK__Bill__DateCheckO__3C69FB99">
+    <End Role="Tables" Type="Self.Table" Multiplicity="1" />
+    <End Role="Bill" Type="Self.Bill" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tables">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Bill">
+        <PropertyRef Name="IdTable" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__BillInfo__TotalP__412EB0B6">
+    <End Role="Bill" Type="Self.Bill" Multiplicity="1" />
+    <End Role="BillInfo" Type="Self.BillInfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Bill">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="BillInfo">
+        <PropertyRef Name="IdBill" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__BillInfo__IdFood__4222D4EF">
+    <End Role="Foods" Type="Self.Food" Multiplicity="1" />
+    <End Role="BillInfo" Type="Self.BillInfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Foods">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="BillInfo">
+        <PropertyRef Name="IdFood" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Foods__IsDel__36B12243">
+    <End Role="FoodCategory" Type="Self.FoodCategory" Multiplicity="1" />
+    <End Role="Foods" Type="Self.Food" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FoodCategory">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Foods">
+        <PropertyRef Name="IdCategory" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Foods__IdImage__37A5467C">
+    <End Role="Images" Type="Self.Image" Multiplicity="0..1" />
+    <End Role="Foods" Type="Self.Food" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Images">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Foods">
+        <PropertyRef Name="IdImage" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="CoffeeShopWebEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Accounts" EntityType="Self.Account" />
+    <EntitySet Name="Bills" EntityType="Self.Bill" />
+    <EntitySet Name="BillInfoes" EntityType="Self.BillInfo" />
+    <EntitySet Name="FoodCategories" EntityType="Self.FoodCategory" />
+    <EntitySet Name="Foods" EntityType="Self.Food" />
+    <EntitySet Name="Images" EntityType="Self.Image" />
+    <EntitySet Name="Tables" EntityType="Self.Table" />
+    <AssociationSet Name="FK__Bill__DateCheckO__3C69FB99" Association="Self.FK__Bill__DateCheckO__3C69FB99">
+      <End Role="Tables" EntitySet="Tables" />
+      <End Role="Bill" EntitySet="Bills" />
+    </AssociationSet>
+    <AssociationSet Name="FK__BillInfo__TotalP__412EB0B6" Association="Self.FK__BillInfo__TotalP__412EB0B6">
+      <End Role="Bill" EntitySet="Bills" />
+      <End Role="BillInfo" EntitySet="BillInfoes" />
+    </AssociationSet>
+    <AssociationSet Name="FK__BillInfo__IdFood__4222D4EF" Association="Self.FK__BillInfo__IdFood__4222D4EF">
+      <End Role="Foods" EntitySet="Foods" />
+      <End Role="BillInfo" EntitySet="BillInfoes" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Foods__IsDel__36B12243" Association="Self.FK__Foods__IsDel__36B12243">
+      <End Role="FoodCategory" EntitySet="FoodCategories" />
+      <End Role="Foods" EntitySet="Foods" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Foods__IdImage__37A5467C" Association="Self.FK__Foods__IdImage__37A5467C">
+      <End Role="Images" EntitySet="Images" />
+      <End Role="Foods" EntitySet="Foods" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,59 +1,3 @@
-E:\StudyC#\CoffeShopWeb\CoffeShopWeb\bin\CoffeShopWeb.dll.config
-E:\StudyC#\CoffeShopWeb\CoffeShopWeb\bin\CoffeShopWeb.dll
-E:\StudyC#\CoffeShopWeb\CoffeShopWeb\bin\CoffeShopWeb.pdb
-E:\StudyC#\CoffeShopWeb\CoffeShopWeb\bin\roslyn\csc.exe
-E:\StudyC#\CoffeShopWeb\CoffeShopWeb\bin\roslyn\csc.exe.config
-E:\StudyC#\CoffeShopWeb\CoffeShopWeb\bin\roslyn\csc.rsp
-E:\StudyC#\CoffeShopWeb\CoffeShopWeb\bin\roslyn\csi.exe
-E:\StudyC#\CoffeShopWeb\CoffeShopWeb\bin\roslyn\csi.rsp
-E:\StudyC#\CoffeShopWeb\CoffeShopWeb\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
-E:\StudyC#\CoffeShopWeb\CoffeShopWeb\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
-E:\StudyC#\CoffeShopWeb\CoffeShopWeb\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
-E:\StudyC#\CoffeShopWeb\CoffeShopWeb\bin\roslyn\Microsoft.CodeAnalysis.dll
-E:\StudyC#\CoffeShopWeb\CoffeShopWeb\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
-E:\StudyC#\CoffeShopWeb\CoffeShopWeb\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
-E:\StudyC#\CoffeShopWeb\CoffeShopWeb\bin\roslyn\Microsoft.CSharp.Core.targets
-E:\StudyC#\CoffeShopWeb\CoffeShopWeb\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
-E:\StudyC#\CoffeShopWeb\CoffeShopWeb\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
-E:\StudyC#\CoffeShopWeb\CoffeShopWeb\bin\roslyn\Microsoft.VisualBasic.Core.targets
-E:\StudyC#\CoffeShopWeb\CoffeShopWeb\bin\roslyn\System.AppContext.dll
-E:\StudyC#\CoffeShopWeb\CoffeShopWeb\bin\roslyn\System.Collections.Immutable.dll
-E:\StudyC#\CoffeShopWeb\CoffeShopWeb\bin\roslyn\System.Diagnostics.StackTrace.dll
-E:\StudyC#\CoffeShopWeb\CoffeShopWeb\bin\roslyn\System.IO.FileSystem.dll
-E:\StudyC#\CoffeShopWeb\CoffeShopWeb\bin\roslyn\System.IO.FileSystem.Primitives.dll
-E:\StudyC#\CoffeShopWeb\CoffeShopWeb\bin\roslyn\System.Reflection.Metadata.dll
-E:\StudyC#\CoffeShopWeb\CoffeShopWeb\bin\roslyn\vbc.exe
-E:\StudyC#\CoffeShopWeb\CoffeShopWeb\bin\roslyn\vbc.exe.config
-E:\StudyC#\CoffeShopWeb\CoffeShopWeb\bin\roslyn\vbc.rsp
-E:\StudyC#\CoffeShopWeb\CoffeShopWeb\bin\roslyn\VBCSCompiler.exe
-E:\StudyC#\CoffeShopWeb\CoffeShopWeb\bin\roslyn\VBCSCompiler.exe.config
-E:\StudyC#\CoffeShopWeb\CoffeShopWeb\bin\Antlr3.Runtime.dll
-E:\StudyC#\CoffeShopWeb\CoffeShopWeb\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
-E:\StudyC#\CoffeShopWeb\CoffeShopWeb\bin\Microsoft.Web.Infrastructure.dll
-E:\StudyC#\CoffeShopWeb\CoffeShopWeb\bin\Newtonsoft.Json.dll
-E:\StudyC#\CoffeShopWeb\CoffeShopWeb\bin\System.Web.Helpers.dll
-E:\StudyC#\CoffeShopWeb\CoffeShopWeb\bin\System.Web.Mvc.dll
-E:\StudyC#\CoffeShopWeb\CoffeShopWeb\bin\System.Web.Optimization.dll
-E:\StudyC#\CoffeShopWeb\CoffeShopWeb\bin\System.Web.Razor.dll
-E:\StudyC#\CoffeShopWeb\CoffeShopWeb\bin\System.Web.WebPages.Deployment.dll
-E:\StudyC#\CoffeShopWeb\CoffeShopWeb\bin\System.Web.WebPages.dll
-E:\StudyC#\CoffeShopWeb\CoffeShopWeb\bin\System.Web.WebPages.Razor.dll
-E:\StudyC#\CoffeShopWeb\CoffeShopWeb\bin\WebGrease.dll
-E:\StudyC#\CoffeShopWeb\CoffeShopWeb\bin\System.Web.Helpers.xml
-E:\StudyC#\CoffeShopWeb\CoffeShopWeb\bin\System.Web.Mvc.xml
-E:\StudyC#\CoffeShopWeb\CoffeShopWeb\bin\System.Web.Optimization.xml
-E:\StudyC#\CoffeShopWeb\CoffeShopWeb\bin\System.Web.Razor.xml
-E:\StudyC#\CoffeShopWeb\CoffeShopWeb\bin\System.Web.WebPages.xml
-E:\StudyC#\CoffeShopWeb\CoffeShopWeb\bin\System.Web.WebPages.Deployment.xml
-E:\StudyC#\CoffeShopWeb\CoffeShopWeb\bin\System.Web.WebPages.Razor.xml
-E:\StudyC#\CoffeShopWeb\CoffeShopWeb\bin\Newtonsoft.Json.xml
-E:\StudyC#\CoffeShopWeb\CoffeShopWeb\bin\Antlr3.Runtime.pdb
-E:\StudyC#\CoffeShopWeb\CoffeShopWeb\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-E:\StudyC#\CoffeShopWeb\CoffeShopWeb\obj\Debug\CoffeShopWeb.csprojAssemblyReference.cache
-E:\StudyC#\CoffeShopWeb\CoffeShopWeb\obj\Debug\CoffeShopWeb.csproj.CoreCompileInputs.cache
-E:\StudyC#\CoffeShopWeb\CoffeShopWeb\obj\Debug\CoffeShopWeb.csproj.CopyComplete
-E:\StudyC#\CoffeShopWeb\CoffeShopWeb\obj\Debug\CoffeShopWeb.dll
-E:\StudyC#\CoffeShopWeb\CoffeShopWeb\obj\Debug\CoffeShopWeb.pdb
 D:\frontendpt\CoffeeShopManagerWeb\CoffeShopWeb\bin\CoffeShopWeb.dll.config
 D:\frontendpt\CoffeeShopManagerWeb\CoffeShopWeb\bin\CoffeShopWeb.dll
 D:\frontendpt\CoffeeShopManagerWeb\CoffeShopWeb\bin\CoffeShopWeb.pdb
@@ -110,6 +54,70 @@ D:\frontendpt\CoffeeShopManagerWeb\CoffeShopWeb\obj\Debug\CoffeShopWeb.csproj.Co
 D:\frontendpt\CoffeeShopManagerWeb\CoffeShopWeb\obj\Debug\CoffeShopWeb.csproj.CopyComplete
 D:\frontendpt\CoffeeShopManagerWeb\CoffeShopWeb\obj\Debug\CoffeShopWeb.dll
 D:\frontendpt\CoffeeShopManagerWeb\CoffeShopWeb\obj\Debug\CoffeShopWeb.pdb
+E:\StudyC#\CoffeShopWeb\CoffeShopWeb\bin\CoffeShopWeb.dll.config
+E:\StudyC#\CoffeShopWeb\CoffeShopWeb\bin\CoffeShopWeb.dll
+E:\StudyC#\CoffeShopWeb\CoffeShopWeb\bin\CoffeShopWeb.pdb
+E:\StudyC#\CoffeShopWeb\CoffeShopWeb\bin\roslyn\csc.exe
+E:\StudyC#\CoffeShopWeb\CoffeShopWeb\bin\roslyn\csc.exe.config
+E:\StudyC#\CoffeShopWeb\CoffeShopWeb\bin\roslyn\csc.rsp
+E:\StudyC#\CoffeShopWeb\CoffeShopWeb\bin\roslyn\csi.exe
+E:\StudyC#\CoffeShopWeb\CoffeShopWeb\bin\roslyn\csi.rsp
+E:\StudyC#\CoffeShopWeb\CoffeShopWeb\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+E:\StudyC#\CoffeShopWeb\CoffeShopWeb\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+E:\StudyC#\CoffeShopWeb\CoffeShopWeb\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+E:\StudyC#\CoffeShopWeb\CoffeShopWeb\bin\roslyn\Microsoft.CodeAnalysis.dll
+E:\StudyC#\CoffeShopWeb\CoffeShopWeb\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+E:\StudyC#\CoffeShopWeb\CoffeShopWeb\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+E:\StudyC#\CoffeShopWeb\CoffeShopWeb\bin\roslyn\Microsoft.CSharp.Core.targets
+E:\StudyC#\CoffeShopWeb\CoffeShopWeb\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+E:\StudyC#\CoffeShopWeb\CoffeShopWeb\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+E:\StudyC#\CoffeShopWeb\CoffeShopWeb\bin\roslyn\Microsoft.VisualBasic.Core.targets
+E:\StudyC#\CoffeShopWeb\CoffeShopWeb\bin\roslyn\System.AppContext.dll
+E:\StudyC#\CoffeShopWeb\CoffeShopWeb\bin\roslyn\System.Collections.Immutable.dll
+E:\StudyC#\CoffeShopWeb\CoffeShopWeb\bin\roslyn\System.Diagnostics.StackTrace.dll
+E:\StudyC#\CoffeShopWeb\CoffeShopWeb\bin\roslyn\System.IO.FileSystem.dll
+E:\StudyC#\CoffeShopWeb\CoffeShopWeb\bin\roslyn\System.IO.FileSystem.Primitives.dll
+E:\StudyC#\CoffeShopWeb\CoffeShopWeb\bin\roslyn\System.Reflection.Metadata.dll
+E:\StudyC#\CoffeShopWeb\CoffeShopWeb\bin\roslyn\vbc.exe
+E:\StudyC#\CoffeShopWeb\CoffeShopWeb\bin\roslyn\vbc.exe.config
+E:\StudyC#\CoffeShopWeb\CoffeShopWeb\bin\roslyn\vbc.rsp
+E:\StudyC#\CoffeShopWeb\CoffeShopWeb\bin\roslyn\VBCSCompiler.exe
+E:\StudyC#\CoffeShopWeb\CoffeShopWeb\bin\roslyn\VBCSCompiler.exe.config
+E:\StudyC#\CoffeShopWeb\CoffeShopWeb\bin\Antlr3.Runtime.dll
+E:\StudyC#\CoffeShopWeb\CoffeShopWeb\bin\CloudinaryDotNet.dll
+E:\StudyC#\CoffeShopWeb\CoffeShopWeb\bin\EntityFramework.dll
+E:\StudyC#\CoffeShopWeb\CoffeShopWeb\bin\EntityFramework.SqlServer.dll
+E:\StudyC#\CoffeShopWeb\CoffeShopWeb\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+E:\StudyC#\CoffeShopWeb\CoffeShopWeb\bin\Microsoft.Web.Infrastructure.dll
+E:\StudyC#\CoffeShopWeb\CoffeShopWeb\bin\Newtonsoft.Json.dll
+E:\StudyC#\CoffeShopWeb\CoffeShopWeb\bin\System.Runtime.InteropServices.RuntimeInformation.dll
+E:\StudyC#\CoffeShopWeb\CoffeShopWeb\bin\System.Text.Encodings.Web.dll
+E:\StudyC#\CoffeShopWeb\CoffeShopWeb\bin\System.Web.Helpers.dll
+E:\StudyC#\CoffeShopWeb\CoffeShopWeb\bin\System.Web.Mvc.dll
+E:\StudyC#\CoffeShopWeb\CoffeShopWeb\bin\System.Web.Optimization.dll
+E:\StudyC#\CoffeShopWeb\CoffeShopWeb\bin\System.Web.Razor.dll
+E:\StudyC#\CoffeShopWeb\CoffeShopWeb\bin\System.Web.WebPages.Deployment.dll
+E:\StudyC#\CoffeShopWeb\CoffeShopWeb\bin\System.Web.WebPages.dll
+E:\StudyC#\CoffeShopWeb\CoffeShopWeb\bin\System.Web.WebPages.Razor.dll
+E:\StudyC#\CoffeShopWeb\CoffeShopWeb\bin\WebGrease.dll
+E:\StudyC#\CoffeShopWeb\CoffeShopWeb\bin\CloudinaryDotNet.xml
+E:\StudyC#\CoffeShopWeb\CoffeShopWeb\bin\EntityFramework.xml
+E:\StudyC#\CoffeShopWeb\CoffeShopWeb\bin\EntityFramework.SqlServer.xml
+E:\StudyC#\CoffeShopWeb\CoffeShopWeb\bin\Newtonsoft.Json.xml
+E:\StudyC#\CoffeShopWeb\CoffeShopWeb\bin\System.Text.Encodings.Web.xml
+E:\StudyC#\CoffeShopWeb\CoffeShopWeb\bin\System.Web.Helpers.xml
+E:\StudyC#\CoffeShopWeb\CoffeShopWeb\bin\System.Web.Mvc.xml
+E:\StudyC#\CoffeShopWeb\CoffeShopWeb\bin\System.Web.Optimization.xml
+E:\StudyC#\CoffeShopWeb\CoffeShopWeb\bin\System.Web.Razor.xml
+E:\StudyC#\CoffeShopWeb\CoffeShopWeb\bin\System.Web.WebPages.xml
+E:\StudyC#\CoffeShopWeb\CoffeShopWeb\bin\System.Web.WebPages.Deployment.xml
+E:\StudyC#\CoffeShopWeb\CoffeShopWeb\bin\System.Web.WebPages.Razor.xml
+E:\StudyC#\CoffeShopWeb\CoffeShopWeb\bin\Antlr3.Runtime.pdb
+E:\StudyC#\CoffeShopWeb\CoffeShopWeb\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+E:\StudyC#\CoffeShopWeb\CoffeShopWeb\obj\Debug\CoffeShopWeb.csproj.CoreCompileInputs.cache
+E:\StudyC#\CoffeShopWeb\CoffeShopWeb\obj\Debug\CoffeShopWeb.dll
+E:\StudyC#\CoffeShopWeb\CoffeShopWeb\obj\Debug\CoffeShopWeb.pdb
+E:\StudyC#\CoffeShopWeb\CoffeShopWeb\obj\Debug\CoffeShopWeb.csproj.AssemblyReference.cache
 D:\frontendpt\project cho mon hoc\CoffeeShopManagerWeb\CoffeShopWeb\bin\CoffeShopWeb.dll.config
 D:\frontendpt\project cho mon hoc\CoffeeShopManagerWeb\CoffeShopWeb\bin\CoffeShopWeb.dll
 D:\frontendpt\project cho mon hoc\CoffeeShopManagerWeb\CoffeShopWeb\bin\CoffeShopWeb.pdb
@@ -140,9 +148,14 @@ D:\frontendpt\project cho mon hoc\CoffeeShopManagerWeb\CoffeShopWeb\bin\roslyn\v
 D:\frontendpt\project cho mon hoc\CoffeeShopManagerWeb\CoffeShopWeb\bin\roslyn\VBCSCompiler.exe
 D:\frontendpt\project cho mon hoc\CoffeeShopManagerWeb\CoffeShopWeb\bin\roslyn\VBCSCompiler.exe.config
 D:\frontendpt\project cho mon hoc\CoffeeShopManagerWeb\CoffeShopWeb\bin\Antlr3.Runtime.dll
+D:\frontendpt\project cho mon hoc\CoffeeShopManagerWeb\CoffeShopWeb\bin\CloudinaryDotNet.dll
+D:\frontendpt\project cho mon hoc\CoffeeShopManagerWeb\CoffeShopWeb\bin\EntityFramework.dll
+D:\frontendpt\project cho mon hoc\CoffeeShopManagerWeb\CoffeShopWeb\bin\EntityFramework.SqlServer.dll
 D:\frontendpt\project cho mon hoc\CoffeeShopManagerWeb\CoffeShopWeb\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
 D:\frontendpt\project cho mon hoc\CoffeeShopManagerWeb\CoffeShopWeb\bin\Microsoft.Web.Infrastructure.dll
 D:\frontendpt\project cho mon hoc\CoffeeShopManagerWeb\CoffeShopWeb\bin\Newtonsoft.Json.dll
+D:\frontendpt\project cho mon hoc\CoffeeShopManagerWeb\CoffeShopWeb\bin\System.Runtime.InteropServices.RuntimeInformation.dll
+D:\frontendpt\project cho mon hoc\CoffeeShopManagerWeb\CoffeShopWeb\bin\System.Text.Encodings.Web.dll
 D:\frontendpt\project cho mon hoc\CoffeeShopManagerWeb\CoffeShopWeb\bin\System.Web.Helpers.dll
 D:\frontendpt\project cho mon hoc\CoffeeShopManagerWeb\CoffeShopWeb\bin\System.Web.Mvc.dll
 D:\frontendpt\project cho mon hoc\CoffeeShopManagerWeb\CoffeShopWeb\bin\System.Web.Optimization.dll
@@ -151,6 +164,11 @@ D:\frontendpt\project cho mon hoc\CoffeeShopManagerWeb\CoffeShopWeb\bin\System.W
 D:\frontendpt\project cho mon hoc\CoffeeShopManagerWeb\CoffeShopWeb\bin\System.Web.WebPages.dll
 D:\frontendpt\project cho mon hoc\CoffeeShopManagerWeb\CoffeShopWeb\bin\System.Web.WebPages.Razor.dll
 D:\frontendpt\project cho mon hoc\CoffeeShopManagerWeb\CoffeShopWeb\bin\WebGrease.dll
+D:\frontendpt\project cho mon hoc\CoffeeShopManagerWeb\CoffeShopWeb\bin\CloudinaryDotNet.xml
+D:\frontendpt\project cho mon hoc\CoffeeShopManagerWeb\CoffeShopWeb\bin\EntityFramework.xml
+D:\frontendpt\project cho mon hoc\CoffeeShopManagerWeb\CoffeShopWeb\bin\EntityFramework.SqlServer.xml
+D:\frontendpt\project cho mon hoc\CoffeeShopManagerWeb\CoffeShopWeb\bin\Newtonsoft.Json.xml
+D:\frontendpt\project cho mon hoc\CoffeeShopManagerWeb\CoffeShopWeb\bin\System.Text.Encodings.Web.xml
 D:\frontendpt\project cho mon hoc\CoffeeShopManagerWeb\CoffeShopWeb\bin\System.Web.Helpers.xml
 D:\frontendpt\project cho mon hoc\CoffeeShopManagerWeb\CoffeShopWeb\bin\System.Web.Mvc.xml
 D:\frontendpt\project cho mon hoc\CoffeeShopManagerWeb\CoffeShopWeb\bin\System.Web.Optimization.xml
@@ -158,10 +176,8 @@ D:\frontendpt\project cho mon hoc\CoffeeShopManagerWeb\CoffeShopWeb\bin\System.W
 D:\frontendpt\project cho mon hoc\CoffeeShopManagerWeb\CoffeShopWeb\bin\System.Web.WebPages.xml
 D:\frontendpt\project cho mon hoc\CoffeeShopManagerWeb\CoffeShopWeb\bin\System.Web.WebPages.Deployment.xml
 D:\frontendpt\project cho mon hoc\CoffeeShopManagerWeb\CoffeShopWeb\bin\System.Web.WebPages.Razor.xml
-D:\frontendpt\project cho mon hoc\CoffeeShopManagerWeb\CoffeShopWeb\bin\Newtonsoft.Json.xml
 D:\frontendpt\project cho mon hoc\CoffeeShopManagerWeb\CoffeShopWeb\bin\Antlr3.Runtime.pdb
 D:\frontendpt\project cho mon hoc\CoffeeShopManagerWeb\CoffeShopWeb\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-D:\frontendpt\project cho mon hoc\CoffeeShopManagerWeb\CoffeShopWeb\obj\Debug\CoffeShopWeb.csproj.AssemblyReference.cache
 D:\frontendpt\project cho mon hoc\CoffeeShopManagerWeb\CoffeShopWeb\obj\Debug\CoffeShopWeb.csproj.CoreCompileInputs.cache
 D:\frontendpt\project cho mon hoc\CoffeeShopManagerWeb\CoffeShopWeb\obj\Debug\CoffeShopWeb.csproj.CopyComplete
 D:\frontendpt\project cho mon hoc\CoffeeShopManagerWeb\CoffeShopWeb\obj\Debug\CoffeShopWeb.dll

@@ -49,9 +49,9 @@
             @RenderBody()
         </div>
     </div>
-    @RenderSection("scripts",required:false)
-    <script>
 
-    </script>
+    @Scripts.Render("~/bundles/jquery")
+    @RenderSection("Scripts", required: false)
+
 </body>
 </html>

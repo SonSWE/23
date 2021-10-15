@@ -1,4 +1,10 @@
-﻿<div class="row">
+﻿
+@{
+    ViewBag.Title = "FoodCategories";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
     <div class="col">
         <div id="btn-add__cate" class="content__food">
             <i class="fas fa-plus"></i>
@@ -12,53 +18,27 @@
         </div>
     </div>
 </div>
+
 <div class="row">
     <div style="display: block;" class="col l-12">
-        <table cellspacing class="table-content">
-            <tr>
-                <th>STT</th>
-                <th>Tên</th>
-                <th>Ghi chú</th>
-                <th>Người tạo</th>
-                <th>Ngày tạo</th>
-                <th>Người chỉnh sửa</th>
-                <th>Ngày chỉnh chửa</th>
-                <th>Chức năng</th>
-            </tr>
-            <tr>
-                <th>1</th>
-                <th>Cafe</th>
-                <th></th>
-                <th>admin</th>
-                <th>8/10/2021 10:34:32 PM</th>
-                <th></th>
-                <th></th>
-                <th><i class="add-cate-btn fas fa-pencil-alt"></i><i class="delete-cate-btn fas fa-trash"></i></th>
-            </tr>
-            <tr>
-                <th>2</th>
-                <th>Kem</th>
-                <th></th>
-                <th>admin</th>
-                <th>8/10/2021 10:34:32 PM</th>
-                <th>Người chỉnh sửa</th>
-                <th>Ngày chỉnh chửa</th>
-                <th><i class="add-cate-btn fas fa-pencil-alt"></i><i class="delete-cate-btn fas fa-trash"></i></th>
-            </tr>
+        <table cellspacing class="table-content" >
+            <tbody id="TableCategory"> </tbody>
         </table>
     </div>
 </div>
+
 <div class="box__layout">
     <div id="cate-add" class="box__layout-add">
         <div class="layout-add__header">
-            <h3>Thêm sản phẩm</h3>
+            <h3 id="modelTitle">Thêm sản phẩm</h3>
         </div>
         <div class="layout-add__content">
+            <input hidden id="id" value="" />
             <div class="add__input-wrap">
-                <input type="text" placeholder="Tên danh mục">
+                <input id="name" type="text" placeholder="Tên danh mục">
             </div>
             <div class="add__input-wrap">
-                <input type="text" placeholder="Ghi chú">
+                <input id="note" type="text" placeholder="Ghi chú">
             </div>
         </div>
         <div class="layout-add__btn">
@@ -66,73 +46,270 @@
             <button id="out-btn__cate" class="layout-add__out ">Thoát</button>
         </div>
     </div>
-    <div id="cate-fix" class="box__layout-add">
-        <div class="layout-add__header">
-            <h3>Chỉnh sửa</h3>
-        </div>
-        <div class="layout-add__content">
-            <div class="add__input-wrap">
-                <input type="text" placeholder="Tên danh mục">
-            </div>
-            <div class="add__input-wrap">
-                <input type="text" placeholder="Ghi chú">
-            </div>
-        </div>
-        <div class="layout-add__btn">
-            <button id="save-btn__fix" class="layout-add__save">Lưu</button>
-            <button id="out-btn__fix" class="layout-add__out ">Thoát</button>
-        </div>
-    </div>
+
     <div id="delete-cate_layout" class="box__layout-delete">
         <div class="layout-delete__header">
             <h3>Bạn có chắc muốn xóa</h3>
         </div>
         <div class="layout-delete__btn">
-            <button id="accept-btn__cate" class="layout-delete__accept">Đồng ý</button>
-            <button id="reject-btn__cate" class="layout-delete__out ">Thoát</button>
+            <button type="button" id="accept-btn__cate" class="layout-delete__accept">Đồng ý</button>
+            <button type="button" id="reject-btn__cate" class="layout-delete__out ">Thoát</button>
         </div>
     </div>
 </div>
-@section scripts{
+
+@section Scripts{
     <script>
         const add_CateLayout = document.querySelector('#cate-add')
-        const del_CateLayout = document.querySelector('#delete-cate_layout')
-        const cate_fixLayout = document.querySelector('#cate-fix')
-        const btnCate = document.querySelector('#btn-add__cate') // nut them san pham trong Danh muc
-        const del_cateBtn = document.querySelectorAll('.delete-cate-btn')
-        const cate_outBtn = document.querySelector('#out-btn__cate')
-        const cate_rejectBtn = document.querySelector('#reject-btn__cate')
-        const cate_fixBtn = document.querySelectorAll('.add-cate-btn')
-        const cate_outfixBtn = document.querySelector('#out-btn__fix')
-        btnCate.onclick = function () {
+        const delete_CateLayout = document.querySelector('#delete-cate_layout')
+
+        //Load
+        $(document).ready(function () {
+            LoadCategoryList();
+        })
+
+        //button add new
+        $('#btn-add__cate').click(function () {
+            //set up to add new item
+            $('#id').val('');
+            //open modal add new
+            $('#modelTitle').text('Thêm mới danh mục');
             add_CateLayout.style.display = "block";
-            add_CateLayout.parentElement.style.display = "flex"
-        }
-        cate_outBtn.onclick = function () {
+            add_CateLayout.parentElement.style.display = "flex";
+        });
+
+        //buntton close
+        $('#out-btn__cate').click(function () {
+            //set up modal to default
+            $('#name').val('');
+            $('#note').val('');
+            $('#name').prop('readonly', false);
+            $('#note').prop('readonly', false);
+            $('#save-btn__cate').show();
+
+            //close modal
             add_CateLayout.style.display = "none";
             add_CateLayout.parentElement.style.display = "none"
-        }
-        // chinh sua san pham cua Danh muc
-        Array.from(cate_fixBtn).forEach(function (item) {
-            item.onclick = function () {
-                cate_fixLayout.style.display = "block";
-                cate_fixLayout.parentElement.style.display = "flex"
-            }
+        });
+
+
+        //button show infor each row item
+        $(document).on('click', "button[name='view']", function () {
+            let id = $(this).closest('tr').attr('Id');
+
+            //show infor
+            $.ajax({
+                url: '/Home/GetInforCategory',
+                type: 'get',
+                data: {
+                    id: id
+                },
+                success: function (data) {
+                    if (data.code == 200) {
+                        const category = JSON.parse(data.Category)
+                        //show infor category
+                        $('#name').val(category.Name);
+                        $('#note').val(category.Note);
+
+                        //set up modal to show infor
+                        $('#name').prop('readonly', true);
+                        $('#note').prop('readonly', true);
+                        $('#save-btn__cate').hide();
+
+                        //open modal show item
+                        $('#modelTitle').text('Thông tin chi tiết');
+                        add_CateLayout.style.display = "block";
+                        add_CateLayout.parentElement.style.display = "flex";
+                    } else {
+                        alert(data.msg);
+                    }
+                }
+
+            });
         })
-        cate_outfixBtn.onclick = function () {
-            cate_fixLayout.style.display = "none";
-            cate_fixLayout.parentElement.style.display = "none"
-        }
-        // xac nhan xoa cua Danh muc
-        Array.from(del_cateBtn).forEach(function (item) {
-            item.onclick = function () {
-                del_CateLayout.style.display = "block";
-                del_CateLayout.parentElement.style.display = "flex"
-            }
+
+        //button edit at each row item
+        $(document).on('click', "button[name='edit']", function () {
+            let id = $(this).closest('tr').attr('Id');
+
+            $.ajax({
+                url: '/Home/GetInforCategory',
+                type: 'get',
+                data: {
+                    id: id
+                },
+                success: function (data) {
+                    if (data.code == 200) {
+                        const category = JSON.parse(data.Category)
+                        //show infor item
+                        $('#id').val(id);
+                        $('#name').val(category.Name);
+                        $('#note').val(category.Note);
+
+                        //set up to edit item
+                        $('#name').prop('readonly', false);
+                        $('#note').prop('readonly', false);
+                        $('#save-btn__cate').show();
+
+                        //open modal edit item
+                        $('#modelTitle').text('Chỉnh sửa danh mục');
+                        add_CateLayout.style.display = "block";
+                        add_CateLayout.parentElement.style.display = "flex";
+                    } else {
+                        alert(data.msg);
+                    }
+                }
+
+            });
         })
-        cate_rejectBtn.onclick = function () {
-            del_CateLayout.style.display = "none";
-            del_CateLayout.parentElement.style.display = "none"
+
+        //button save
+        $('#save-btn__cate').click(function () {
+            //get value input
+            let name = $('#name').val().trim();
+            let note = $('#note').val().trim();
+            //get id
+            let id = $('#id').val().trim();
+
+            //check data is valid or invalid
+            if (name.length == 0) {
+                alert('Vui lòng nhập đủ dữ liệu để tiếp tục');
+                return;
+            }
+
+            //check event is add new or edit
+            if (id.length == 0) {
+                //add new category
+                $.ajax({
+                    url: '/Home/AddCategory',
+                    type: 'post',
+                    data: {
+                        name: name,
+                        note: note
+                    },
+                    success: function (data) {
+                        if (data.code == 200) {
+                            $('#name').val('');
+                            $('#note').val('');
+                            LoadCategoryList();
+                            alert(data.msg);
+                        } else {
+                            alert(data.msg);
+                        }
+                    }
+                });
+            } else {
+                //save change category
+                $.ajax({
+                    url: '/Home/EditCategory',
+                    type: 'post',
+                    data: {
+                        id: id,
+                        name: name,
+                        note: note
+                    },
+                    success: function (data) {
+                        if (data.code == 200) {
+                            $('#name').val('');
+                            $('#note').val('');
+                            LoadCategoryList();
+                            alert(data.msg);
+                        } else {
+                            alert(data.msg);
+                        }
+                    }
+                });
+            }
+
+        });
+
+        //button delete each row item
+        $(document).on('click', "button[name='delete']", function () {
+            let id = $(this).closest('tr').attr('Id');
+            $('#id').val(id);
+            delete_CateLayout.style.display = "block";
+            delete_CateLayout.parentElement.style.display = "flex";
+        });
+
+        $('#accept-btn__cate').click(function () {
+            //get id
+            let id = $('#id').val().trim();
+            $.ajax({
+                url: '/Home/DeleteCategory',
+                type: 'post',
+                data: {
+                    id: id
+                },
+                success: function (data) {
+                    if (data.code == 200) {
+                        //close modal
+                        delete_CateLayout.style.display = "none";
+                        delete_CateLayout.parentElement.style.display = "none";
+
+                        $('#name').val('');
+                        $('#note').val('');
+                        LoadCategoryList();
+                    } else {
+                        alert(data.msg);
+                    }
+                }
+            });
+        });
+
+        //buntton close del modal
+        $('#reject-btn__cate').click(function () {
+            //close modal
+            delete_CateLayout.style.display = "none";
+            delete_CateLayout.parentElement.style.display = "none";
+        });
+
+        
+        //method
+        function LoadCategoryList() {
+            $.ajax({
+                url: "/Home/GetCategoryList",
+                type: "get",
+                success: function (data) {
+                    
+                    if (data.code == 200) {
+
+                        $('#TableCategory').empty();
+
+                       let tr = '<tr>';
+                        tr += '<th>STT</th>';
+                        tr += '<th>Tên</th>';
+                        tr += '<th>Ghi chú</th>';
+                        tr += '<th>Người thêm</th>';
+                        tr += '<th>Ngày thêm</th>';
+                        tr += '<th>Người chỉnh sửa</th>';
+                        tr += '<th>Ngày chỉnh sửa</th>';
+                        tr += '<th>Chức năng</th>';
+                        tr += '</tr>';
+
+                        $('#TableCategory').append(tr);
+
+                        var i = 1;
+
+                        const categories = JSON.parse(data.CategoryList)
+
+                        $.each(categories, function (k, v) {
+                            
+                            let tr = "<tr id='" + v.Id + "'>";
+                            tr += '<th>' + i + '</th>';
+                            tr += '<th>' + v.Name + '</th>';
+                            tr += '<th>' + v.Note + '</th>';
+                            tr += '<th>' + v.NameUserAdd + '</th>';
+                            tr += '<th>' + v.DateAdd + '</th>';
+                            tr += '<th>' + v.NameUserChange + '</th>';
+                            tr += '<th>' + v.DateChange + '</th>';
+                            tr += '<th><button class="delete-cate-btn fas fa-ellipsis-v" name="view"></button>&nbsp;<button class="add-cate-btn fas fa-pencil-alt" name="edit"></button>&nbsp;<button class="delete-cate-btn fas fa-trash" name="delete"></button>&nbsp;</th>';
+                            tr += '</tr>';
+                            i++;    
+                            $('#TableCategory').append(tr);
+                        });
+                    }
+                }
+            });
         }
         const navBtn = document.querySelectorAll('.sidebar__menu-link')
         document.querySelector('.sidebar__menu-link.active').classList.remove('active')
