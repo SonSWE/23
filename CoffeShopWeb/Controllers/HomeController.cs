@@ -118,10 +118,10 @@ namespace CoffeShopWeb.Controllers
         public ActionResult FoodCategories()
         {
 
-            //if (Session["usernameLogin"] == null)
-            //{
-            //    return RedirectToAction("Login", "Login");
-            //}
+            if (Session["usernameLogin"] == null)
+            {
+                return RedirectToAction("Login", "Login");
+            }
 
             return View();
         }
@@ -253,10 +253,10 @@ namespace CoffeShopWeb.Controllers
 
         public ActionResult Food()
         {
-            //if (Session["usernameLogin"] == null)
-            //{
-            //    return RedirectToAction("Login", "Login");
-            //}
+            if (Session["usernameLogin"] == null)
+            {
+                return RedirectToAction("Login", "Login");
+            }
 
             return View();
         }

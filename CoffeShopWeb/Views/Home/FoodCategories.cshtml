@@ -11,7 +11,7 @@
             <span>Thêm mới</span>
         </div>
     </div>
-    <div style="display: block;" class="col l-o-4  l-4">
+    <div style="display: block;" class="col l-o-6  l-4">
         <div class="content__find-wrap">
             <input type="text" placeholder="Tìm kiếm" id="TextBoxSearch" class="content__find" />
             <i id="startSearch" class="fas fa-search"></i>
@@ -336,7 +336,9 @@
                 tr += "<th type='datetime'>" + new Date(v.DateAdd) + "</th>";
                 tr += '<th>' + blankForNull(v.NameUserChange) + '</th>';
                 tr += "<th type='datetime'>" + new Date(v.DateChange) + "</th>";
-                tr += '<th><button class="delete-cate-btn fas fa-ellipsis-v" name="view"></button>&nbsp;<button class="add-cate-btn fas fa-pencil-alt" name="edit"></button>&nbsp;<button class="delete-cate-btn fas fa-trash" name="delete"></button>&nbsp;</th>';
+                tr += "<th><button class='delete-cate-btn fas fa-ellipsis-v' name='view'  ></button>";
+                tr += "<button style='margin: 0 20px;' class='add-cate-btn fas fa-pencil-alt' name='edit' ></button>";
+                tr += "<button class='delete-cate-btn fas fa-trash' name='delete'></button></th>"
                 tr += '</tr>';
                 i++;
                 $('#TableCategory').append(tr);
