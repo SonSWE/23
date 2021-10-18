@@ -15,13 +15,58 @@
         </div>
         <div class="account-wrap__btn">
             <button class="account-wrap__pass">Đổi mật khẩu</button>
-            <button class="account-wrap__signout">Đăng xuất</button>
+            <button id="LogOutBtn" class="account-wrap__signout">Đăng xuất</button>
         </div>
     </div>
 </div>
-<script>
-    const navBtn = document.querySelectorAll('.sidebar__menu-link')
-    document.querySelector('.sidebar__menu-link.active').classList.remove('active')
-    navBtn[5].classList.add('active')
-</script>
+
+<div class="box__layout">
+    <div id="logOut_layout" class="box__layout-delete">
+        <div class="layout-delete__header">
+            <h3>Bạn có muốn đăng xuất</h3>
+        </div>
+        <div class="layout-delete__btn">
+            <a href="/Login/Login" id="accept-btn" class="layout-delete__accept">Đăng xuất</a>
+            <button id="reject-btn" class="layout-delete__out ">Thoát</button>
+        </div>
+    </div>
+</div>
+
+@section scripts{
+    <script>
+        const LogOutLayout = document.querySelector('#logOut_layout')
+
+        const navBtn = document.querySelectorAll('.sidebar__menu-link')
+        document.querySelector('.sidebar__menu-link.active').classList.remove('active')
+        navBtn[5].classList.add('active')
+
+        //Dialog Log Out
+        $('#LogOutBtn').click(function () {
+            //open dialog
+            LogOutLayout.style.display = "block";
+            LogOutLayout.parentElement.style.display = "flex";
+        });
+
+        //accept log out
+        $('#accept-btn').click(function () {
+            $.ajax({
+                url: '/Home/LogOut',
+                type: 'get',
+                success: function (data) {
+                    LogOutLayout.style.display = "none";
+                    LogOutLayout.parentElement.style.display = "none";
+                    alert(data.msg);
+                }
+            });
+        });
+
+        //buntton close del modal
+        $('#reject-btn').click(function () {
+            //close modal
+            LogOutLayout.style.display = "none";
+            LogOutLayout.parentElement.style.display = "none";
+        });
+
+    </script>
+}
 

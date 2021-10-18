@@ -44,72 +44,110 @@ namespace CoffeShopWeb.Controllers
         }
 
         #region method
-        //[HttpGet]
-        //public JsonResult GetTableList()
-        //{
-        //    try
-        //    {
-        //        ObservableCollection<Table> tableList = new ObservableCollection<Table>(dataProvider.Ins.DB.Tables.Where(x => x.IsDel == false));
-        //        return Json(new { code = 200, tableList = tableList, msg = "Lấy danh sách bàn thành công" }, JsonRequestBehavior.AllowGet);
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        return Json(new { code = 500, msg = "Lấy danh sách bàn thât bại: " + ex.Message }, JsonRequestBehavior.AllowGet);
-        //    }
-        //}
+        [HttpGet]
+        public JsonResult GetTableList()
+        {
+            try
+            {
+                ObservableCollection<Table> tableList = new ObservableCollection<Table>(dataProvider.Ins.DB.Tables.Where(x => x.IsDel == false));
 
-        //[HttpPost]
-        //public JsonResult AddTable(string name, string status)
-        //{
-        //    try
-        //    {
-        //        var table = new Table() { Id = Guid.NewGuid().ToString(), Name = name, Status = status, IsDel = false };
-        //        dataProvider.Ins.DB.Tables.Add(table);
-        //        dataProvider.Ins.DB.SaveChanges();
+                var list = JsonConvert.SerializeObject(tableList, new JsonSerializerSettings { ReferenceLoopHandling = ReferenceLoopHandling.Ignore });
 
-        //        return Json(new { code = 200, msg = "Thêm bàn thành công!" }, JsonRequestBehavior.AllowGet);
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        return Json(new { code = 500, msg = "Thêm bàn thất bại : " + ex.Message }, JsonRequestBehavior.AllowGet);
-        //    }
-        //}
+                return Json(new { code = 200, tableList = list, msg = "Lấy danh sách bàn thành công" }, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception ex)
+            {
+                return Json(new { code = 500, msg = "Lấy danh sách bàn thât bại: " + ex.Message }, JsonRequestBehavior.AllowGet);
+            }
+        }
+
+        [HttpGet]
+        public JsonResult GetInforTable(string id)
+        {
+            try
+            {
+                var table = dataProvider.Ins.DB.Tables.Where(x => x.Id == id).SingleOrDefault();
+
+                var item = JsonConvert.SerializeObject(table, new JsonSerializerSettings { ReferenceLoopHandling = ReferenceLoopHandling.Ignore });
+
+                return Json(new { code = 200, table = item, msg = "Lấy thông tin thành công!" }, JsonRequestBehavior.AllowGet);
+
+            }
+            catch (Exception ex)
+            {
+                return Json(new { code = 500, msg = "Lấy thông tin thất bại" + ex.Message }, JsonRequestBehavior.AllowGet);
+            }
+        }
+
+        [HttpPost]
+        public JsonResult AddTable(string name, string status)
+        {
+            try
+            {
+                var table = new Table() { Id = Guid.NewGuid().ToString(), Name = name, Status = status, IsDel = false };
+                dataProvider.Ins.DB.Tables.Add(table);
+                dataProvider.Ins.DB.SaveChanges();
+
+                return Json(new { code = 200, msg = "Thêm bàn thành công!" }, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception ex)
+            {
+                return Json(new { code = 500, msg = "Thêm bàn thất bại : " + ex.Message }, JsonRequestBehavior.AllowGet);
+            }
+        }
 
 
-        //[HttpPost]
-        //public JsonResult EditTable(string id, string name, string status)
-        //{
-        //    try
-        //    {
-        //        var table = dataProvider.Ins.DB.Tables.Where(x => x.Id == id).SingleOrDefault();
-        //        table.Name = name;
-        //        table.Status = status;
-        //        dataProvider.Ins.DB.SaveChanges();
+        [HttpPost]
+        public JsonResult EditTable(string id, string name, string status)
+        {
+            try
+            {
+                var table = dataProvider.Ins.DB.Tables.Where(x => x.Id == id).SingleOrDefault();
+                table.Name = name;
+                table.Status = status;
+                dataProvider.Ins.DB.SaveChanges();
 
-        //        return Json(new { code = 200, msg = "Sửa bàn thành công!" }, JsonRequestBehavior.AllowGet);
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        return Json(new { code = 500, msg = "Sửa bàn thất bại : " + ex.Message }, JsonRequestBehavior.AllowGet);
-        //    }
-        //}
+                return Json(new { code = 200, msg = "Sửa bàn thành công!" }, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception ex)
+            {
+                return Json(new { code = 500, msg = "Sửa bàn thất bại : " + ex.Message }, JsonRequestBehavior.AllowGet);
+            }
+        }
 
-        //[HttpPost]
-        //public JsonResult DeleteTable(string id)
-        //{
-        //    try
-        //    {
-        //        var table = dataProvider.Ins.DB.Tables.Where(x => x.Id == id).SingleOrDefault();
-        //        table.IsDel = true;
-        //        dataProvider.Ins.DB.SaveChanges();
+        [HttpPost]
+        public JsonResult DeleteTable(string id)
+        {
+            try
+            {
+                var table = dataProvider.Ins.DB.Tables.Where(x => x.Id == id).SingleOrDefault();
+                table.IsDel = true;
+                dataProvider.Ins.DB.SaveChanges();
 
-        //        return Json(new { code = 200, msg = "Xóa bàn thành công!" }, JsonRequestBehavior.AllowGet);
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        return Json(new { code = 500, msg = "Xóa bàn thất bại : " + ex.Message }, JsonRequestBehavior.AllowGet);
-        //    }
-        //}
+                return Json(new { code = 200, msg = "Xóa bàn thành công!" }, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception ex)
+            {
+                return Json(new { code = 500, msg = "Xóa bàn thất bại : " + ex.Message }, JsonRequestBehavior.AllowGet);
+            }
+        }
+
+        [HttpPost]
+        public JsonResult SaveIdTableToSession(string id)
+        {
+            if (id != null || id != "")
+            {
+                Session["IdTable"] = id;
+
+                return Json(new { code = 200, msg = "Lấy id bàn thành công!" }, JsonRequestBehavior.AllowGet);
+
+            }   
+            else
+            {
+                return Json(new { code = 500, msg = "Lấy ib bàn thất bại" }, JsonRequestBehavior.AllowGet);
+            }    
+               
+        }
         #endregion
         #endregion
 
@@ -477,6 +515,14 @@ namespace CoffeShopWeb.Controllers
             return View();
         }
         #region method
+
+        [HttpGet]
+        public JsonResult LogOut()
+        {
+            Session["usernameLogin"] = null;
+            return Json(new { msg = "Đăng xuất thành công!" }, JsonRequestBehavior.AllowGet);
+        }
+
         #endregion
         #endregion
     }

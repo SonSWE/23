@@ -37,7 +37,7 @@
         </div>
         <div class="food__add-content">
             <div class="add__img-wrap" id="addImgWrap">   
-                <img src="https://www.bdsnhatrang.net/uploads/no-img.jpg" alt="" id="show_picture" name="picture" width="300px" height="300px">
+                <img style="object-fit: cover;" src="https://www.bdsnhatrang.net/uploads/no-img.jpg" alt="" id="show_picture" name="picture" width="300px" height="300px">
                 <input style="display:block;" id="ChoseImg" accept="image/*" type="file" name="fileImg" width="300px" />
             </div>
             <div class="layout-add__content food">
@@ -442,7 +442,7 @@
             $.each(foods, function (k, v) {
                 let div = "<div class='food__wrap col l-3'>";
                 div += "<div class='content__menu'>";
-                div += "<img src='" + v.Image.Data + "' class='content__menu-img' width='100%' height='200px'>";
+                div += "<img style='object-fit: cover;' src='" + v.Image.Data + "' class='content__menu-img' width='100%' height='200px'>";
                 div += "<div class='content__food-wrap'>";
                 div += "<h3>" + v.Name + "</h3>";
                 div += "<span>" + v.OutputPrice + "</span>";

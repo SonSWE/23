@@ -30,7 +30,8 @@ namespace CoffeShopWeb.Controllers
 
             if (count >= 1)
             {
-                Session["usernameLogin"] = username;
+                string nameOfAccount = dataProvider.Ins.DB.Accounts.Where(x => x.Username == username).SingleOrDefault().Name;
+                Session["usernameLogin"] = nameOfAccount;
                 return RedirectToAction("MainMenu", "Home");
             }
             return View();
